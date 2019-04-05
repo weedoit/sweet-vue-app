@@ -1,0 +1,7 @@
+<div>
+    <h1>Hi</h1>
+    <form @submit.prevent="submit()">
+        <input type="text" name="dada" v-model="name" v-mask="'##/##/####'" v-sh-validate="true" rules="required" />
+        <input type="submit" value="send">
+    </form>
+</div>
