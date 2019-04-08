@@ -77,6 +77,7 @@ gulp.task('vendor', () => {
 
     return gulp.src(['src/**.js', 'src/**.scss'])
         .pipe(plumber())
+        .pipe(removeUselessComponents())
         .pipe(joinVendor('vendor'))
         .pipe(sourcemaps.init())
         .pipe(include(includeParams))
