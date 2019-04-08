@@ -10,14 +10,28 @@ const include = require('gulp-include');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const addsrc = require('gulp-add-src');
+const filter = require('gulp-filter');
 
-const includeParams = {
-    includePaths: [`${__dirname}/node_modules`]
-};
+const includeParams = { includePaths: [`${__dirname}/node_modules`] };
+const joinVendor = require('./lib/gulp-join-vendor.js');
+const removeUselessComponents = require('./lib/gulp-remove-useless.js');
+
+gulp.task('join-vendor', () => {
+    return gulp.src([
+        'src/app/components/**/*.js',
+        'src/app/components/**/*.scss',
+        'src/app/components/**/*.css',
+        'src/app/pages/**/*.js',
+        'src/app/pages/**/*.css',
+        'src/app/pages/**/*.scss',
+    ])
+        .pipe(join())
+        .pipe(gulp.dest('foo'));
+});
 
 gulp.task('babel', () => {
     return gulp.src([
-        'src/app/framework/**/*.js',
+        'src/framework/**/*.js',
         'src/app/providers/**/*.js',
         'src/app/components/**/*.js',
         'src/app/pages/**/*.js',
@@ -26,19 +40,18 @@ gulp.task('babel', () => {
         'src/index.js',
     ])
         .pipe(plumber())
+        .pipe(removeUselessComponents())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(tpl2js())
         .pipe(concat('app.js'))
         .pipe(babel({
             presets: ['@babel/env'],
-            plugins: [
-                '@babel/plugin-proposal-class-properties'
-            ]
+            plugins: ['@babel/plugin-proposal-class-properties']
         }))
         .pipe(addsrc('node_modules/@babel/polyfill/dist/polyfill.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/js'))
+        .pipe(gulp.dest('public/bundles'))
         .pipe(connect.reload());
 });
 
@@ -49,44 +62,39 @@ gulp.task('sass', () => {
         'src/app/pages/**/*.scss',
     ])
         .pipe(plumber())
+        .pipe(removeUselessComponents())
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(concat('app.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/css/'));
+        .pipe(gulp.dest('public/bundles/'));
 });
 
-gulp.task('vendor-js', () => {
-    return gulp.src('src/vendor.js')
+gulp.task('vendor', () => {
+    const jsFilter = filter('**/*.js', {restore: true});
+    const sassFilter = filter('**/*.scss', {restore: true});
+
+    return gulp.src(['src/**.js', 'src/**.scss'])
         .pipe(plumber())
+        .pipe(joinVendor('vendor'))
         .pipe(sourcemaps.init())
         .pipe(include(includeParams))
-        .pipe(concat('vendor.js'))
+        .pipe(jsFilter)
         .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/js/'))
-        .pipe(connect.reload());
-});
-
-gulp.task('vendor-sass', () => {
-    return gulp.src('src/vendor.scss')
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(include(includeParams))
+        .pipe(jsFilter.restore)
+        .pipe(sassFilter)
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({ outputStyle: 'compressed' }))
-        .pipe(concat('vendor.css'))
+        .pipe(sassFilter.restore)
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/css/'))
+        .pipe(gulp.dest('public/bundles/'))
         .pipe(connect.reload());
 });
 
 gulp.task('watch', () => {
-    gulp.watch(['src/index.js', 'src/app/**/*.js', 'src/app/**/*.html'], gulp.parallel(['babel']));
-    gulp.watch(['src/app/**/*.scss'], gulp.parallel(['sass']));
-    gulp.watch('src/vendor.js', gulp.parallel(['vendor-js']));
-    gulp.watch('src/vendor.scss', gulp.parallel(['vendor-sass']));
+    gulp.watch(['src/index.js', 'src/app/**/*.js', 'src/app/**/*.html'], gulp.parallel(['babel', 'vendor']));
+    gulp.watch(['src/app/**/*.scss'], gulp.parallel(['sass', 'vendor']));
 });
 
 gulp.task('connect', () => {
@@ -98,4 +106,4 @@ gulp.task('connect', () => {
     });
 });
 
-gulp.task('default', gulp.parallel(['vendor-sass', 'vendor-js', 'babel', 'sass', 'watch', 'connect']));
+gulp.task('default', gulp.parallel(['vendor', 'babel', 'sass', 'watch', 'connect']));

@@ -1,3 +1,6 @@
+//@vendor: "toast/dist/toast.min.js";
+//@vendor: "modal/dist/modal.min.js";
+
 Page('home', {
     template: "@",
 
