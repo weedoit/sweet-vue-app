@@ -1,0 +1,3 @@
+Component('layout-default', {
+    template: '@'
+});
