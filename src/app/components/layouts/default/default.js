@@ -1,3 +1,7 @@
-Component('layout-default', {
-    template: '@'
+Layout('default', {
+    template: '@',
+
+    mounted () {
+    	console.log(this);
+    }
 });

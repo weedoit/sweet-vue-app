@@ -1,13 +1,18 @@
 class ComponentRegister {
     static getRealName (type, name) {
-        return (type !== 'pages')
-            ? `ui-${name}`
-            : name;
+        switch (type) {
+            case 'page':
+                return name;
+            case 'layout':
+                return `layout-${name}`;
+            default:
+                return  `ui-${name}`;
+        }
     }
 
     static get (type, name) {
         try {
-            const item = this._storage_[type][name];
+            const item = this._storage_[`${type}s`][name];
 
             if (item ) {
                 return item;
@@ -15,7 +20,7 @@ class ComponentRegister {
                 throw new Error();
             }
         } catch (error) {
-            throw new Error(`Component ${type}.${name} not registered.`);
+            throw new Error(`Component ${type}s.${name} not registered.`);
         }
     }
 
@@ -23,21 +28,25 @@ class ComponentRegister {
         if (!this._storage_) {
             this._storage_ = {
                 pages: {},
-                components: {}
+                components: {},
+                layouts: {}
             }
         }
 
-        this._storage_[type][name] = Vue.component(
-            this.getRealName(type, name),
-            def
-        );
+        const realname = this.getRealName(type, name);
+
+        this._storage_[`${type}s`][name] = Vue.component(realname, def);
     }
 }
 
+const Layout = (name, def) => {
+    ComponentRegister.set('layout', name, def);
+}
+
 const Page = (name, def) => {
-    ComponentRegister.set('pages', name, def);
+    ComponentRegister.set('page', name, def);
 }
 
 const Component = (name, def) => {
-    ComponentRegister.set('components', name, def);
+    ComponentRegister.set('component', name, def);
 }

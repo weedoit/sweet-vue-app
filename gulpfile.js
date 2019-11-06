@@ -15,6 +15,8 @@ const filter = require('gulp-filter');
 const includeParams = { includePaths: [`${__dirname}/node_modules`] };
 const joinVendor = require('./lib/gulp-join-vendor.js');
 const removeUselessComponents = require('./lib/gulp-remove-useless.js');
+const removeUselessModifiers = require('./lib/gulp-remove-modifier-css.js');
+
 
 gulp.task('join-vendor', () => {
     return gulp.src([
@@ -63,12 +65,14 @@ gulp.task('sass', () => {
     ])
         .pipe(plumber())
         .pipe(removeUselessComponents())
+        .pipe(removeUselessModifiers())
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(concat('app.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/bundles/'));
+        .pipe(gulp.dest('public/bundles/'))
+        .pipe(connect.reload());
 });
 
 gulp.task('vendor', () => {
@@ -89,12 +93,11 @@ gulp.task('vendor', () => {
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(sassFilter.restore)
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/bundles/'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('public/bundles/'));
 });
 
 gulp.task('watch', () => {
-    gulp.watch(['src/index.js', 'src/app/**/*.js', 'src/app/**/*.html'], gulp.parallel(['babel', 'vendor']));
+    gulp.watch(['src/index.js', 'src/app/**/*.js', 'src/app/**/*.html', 'src/framework/**/*.js'], gulp.parallel(['babel', 'sass', 'vendor']));
     gulp.watch(['src/app/**/*.scss'], gulp.parallel(['sass', 'vendor']));
 });
 
@@ -108,3 +111,4 @@ gulp.task('connect', () => {
 });
 
 gulp.task('default', gulp.parallel(['vendor', 'babel', 'sass', 'watch', 'connect']));
+gulp.task('build', gulp.parallel(['vendor', 'babel', 'sass']));

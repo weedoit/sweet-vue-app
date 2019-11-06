@@ -1,0 +1,40 @@
+<div ui-layout-admin>
+	<div ui-layout-admin--block="nav">
+		<a href="/" class="brand" ui-layout-admin--block="brand">
+		    <span class="brand-text">
+		    	sweetheart
+		    </span>
+		    <img src="/favicon.png" alt="sweetheart">
+		</a>
+		<div ui-layout-admin--block="user-account" v-if="$user()">
+			<a href="#">
+				<img :src="$user().getPicture()" alt="user avatar">
+				<div class="user-info">
+					<span class="user-name">{{ $user().getName() }}</span>
+					<span class="user-role">{{ $user().getRole() }}</span>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div ui-layout-admin-sidebar>
+		<div class="menu" ui-layout-admin--block="menu-top">
+			<ui-admin-menu />
+		</div>
+		<div class="menu" ui-layout-admin--block="menu-bottom">
+			<ul class="menu-list">
+				<li>
+					<a href="#">
+						<i ui-icon ui-icon--name="cogwheel"></i>
+						Settings
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div ui-layout-admin-content>
+		<div ui-layout-admin--block="main-content">
+			<slot></slot>
+		</div>
+	</div>
+</div>

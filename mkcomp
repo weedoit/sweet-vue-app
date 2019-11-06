@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for component in "$@"
+do
+    mkdir -p ./src/app/components/$component
+    printf "@import '../theme';\n\n[ui-$component] {\n\n}" > ./src/app/components/$component/$component.scss
+done

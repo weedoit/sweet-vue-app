@@ -1,21 +1,6 @@
 {
   "datasources": [],
   "modules": [],
-  "settings": [
-    {
-      "env": "GLOBAL",
-      "key": "API_URL",
-      "value": "https://my.api.com"
-    },
-    {
-      "env": "GLOBAL",
-      "key": "ONSAVE_ERROR",
-      "value": "Fail to save resource"
-    },
-    {
-      "env": "GLOBAL",
-      "key": "ONLOAD_ERROR",
-      "value": "fail to load resource"
-    }
-  ]
+  "settings": [],
+  "menus": []
 }

@@ -1,3 +1,3 @@
-Component('layout-auth', {
+Layout('auth', {
     template: '@'
 });

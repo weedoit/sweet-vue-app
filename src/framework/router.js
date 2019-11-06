@@ -10,7 +10,7 @@ class Router {
 
         this._routes.push({
             name: this.getOrCreateName(name),
-            component: ComponentRegister.get('pages', component),
+            component: ComponentRegister.get('page', component),
             middleware,
             path,
         });
@@ -28,7 +28,7 @@ class Router {
                     name
                 })
             }
-        })
+        });
     }
 
     static mergeMiddlewareRules (group, route) {

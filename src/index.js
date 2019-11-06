@@ -1,8 +1,5 @@
 // -- DECLARE VENDORS --
-// @vendor: 'js-cookie/src/js.cookie.js'
 // @vendor: 'vue-the-mask/dist/vue-the-mask.js'
-// @vendor: 'izitoast/dist/js/iziToast.js'
-// @vendor: 'izitoast/dist/css/iziToast.css'
 
 // -- INITIALIZE VENDORS --
 Vue.use(VueTheMask);
@@ -18,6 +15,14 @@ Vue.use(VueTheMask);
 Env.set('CURRENT_ENV', 'LOCAL');
 
 // @SH_ENV - START - DONT REMOVE THIS LINE!!
+Env.set('API_URL', '')
+Env.set('AUTH_DRIVER', 'session')
+Env.set('AUTH_ENDPOINT', 'login')
+Env.set('AFTER_LOGIN_REDIRECT', '/')
+Env.set('ONSAVE_ERROR', 'Fail to save resource')
+Env.set('ONLOAD_ERROR', 'Fail to load resource')
+Env.set('ONLOGIN_ERROR', 'Fail to log in')
+Env.set('LOGIN_PAGE_ROUTE', '/login')
 // @SH_ENV - END - DONT REMOVE THIS LINE!!
 
 App.start();

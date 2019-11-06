@@ -1,7 +1,7 @@
 Middleware.register('auth', (to, from, next) => {
     if (Auth.isLoggedIn()) {
-        next(); 
+        return next(); 
     } 
 
-    return next('auth/login');
+    return next(Env.get('LOGIN_PAGE_ROUTE', '/login'));
 })

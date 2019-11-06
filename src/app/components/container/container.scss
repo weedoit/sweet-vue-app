@@ -1,0 +1,9 @@
+@import '../theme';
+
+[ui-container] {
+	width: 100%;
+
+	&[ui-container--width="960"] { max-width: 960px }   // @if-use-mod:ui-container--width-960
+	&[ui-container--width="1080"] { max-width: 1080px } // @if-use-mod:ui-container--width-1080
+	&[ui-container--position="center"] { margin: 0 auto; } // @if-use-mod:ui-container--position-center
+}

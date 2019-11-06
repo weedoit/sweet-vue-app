@@ -1,0 +1,29 @@
+@import '../theme';
+
+[ui-table] {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: $default-margin * 4;
+
+	td, th {
+		text-align: left;
+		padding: $default-padding/2 0;
+		border-bottom: 1px solid $default-border-color
+	}
+
+	[ui-table-action] {
+		text-align: right;
+
+		[ui-btn] {
+			&+ [ui-btn] {
+				margin-left: $default-margin;
+			}
+		}
+	}
+
+	[ui-table-feedback] {
+		text-align: center;
+		padding: $default-padding * 2;
+		color: lighten($base-text-color, 20%);
+	}
+}

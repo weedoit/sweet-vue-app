@@ -4,6 +4,6 @@ class App {
             router: Router.createVueRouter()
         };
 
-        return new Vue(params).$mount('#app');
+        return (new Vue(params)).$mount('#app');
     }
 }

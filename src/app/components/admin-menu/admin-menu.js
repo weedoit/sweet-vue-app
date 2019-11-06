@@ -1,0 +1,1 @@
+Component('admin-menu', { template: '@' });
