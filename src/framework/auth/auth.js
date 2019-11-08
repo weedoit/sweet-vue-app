@@ -13,8 +13,15 @@ class Auth {
 
     static getUserData () {
         try {
-            const data = localStorage.getItem(this.USER_DATA_KEY); 
-            const user = new LoggedUser(JSON.parse(data));
+            const data = localStorage.getItem(this.USER_DATA_KEY);
+
+            if (!data) {
+                throw new Error('No user logged in.');
+            }
+
+            const userdata = JSON.parse(data);
+            const user = new LoggedUser(userdata);
+
             return user;
         } catch (error) {
             return null;

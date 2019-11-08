@@ -5,8 +5,8 @@ RESTFullResource.intercept('request', (req) => {
 	}
 });
 
-RESTFullResource.intercept('response', (res, status) => {
-	if (status === 403 && AuthProvider.isLoggedIn()) {
+RESTFullResource.intercept('response', (res) => {
+	if (res.status === 401 && AuthProvider.isLoggedIn()) {
 		AuthProvider.logout();
 		window.location.reload();
 	}
