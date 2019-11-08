@@ -4,6 +4,7 @@
 	background-color: $auth-layout-default-background;
 	height: 100%;
 	padding: 80px 0;
+	overflow: auto;
 
 	//@if-use-mod-start:ui-layout-auth--block-brand
 	[ui-layout-auth--block="brand"] {

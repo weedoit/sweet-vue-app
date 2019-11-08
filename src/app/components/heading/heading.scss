@@ -1,7 +1,7 @@
 [ui-heading] {
 	font-weight: bold;
 	line-height: 1.2;
-	margin-bottom: .5rem;
+	margin-bottom: 1rem;
 
 	&[ui-heading--size="1"] {font-size: 40px;} // @if-use-mod:ui-heading--size-1 
     &[ui-heading--size="2"] {font-size: 32px;} // @if-use-mod:ui-heading--size-2
