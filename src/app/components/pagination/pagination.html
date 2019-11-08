@@ -1,0 +1,7 @@
+<div ui-pagination>
+	<ul>
+		<li v-for="number in numbers" :class="{ current: number === current, ellipsis: number === '...' }">
+			<span @click="paginate(number)" ui-pagination-number>{{ number }}</span>
+		</li>
+	</ul>
+</div>

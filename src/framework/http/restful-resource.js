@@ -57,8 +57,14 @@ class RESTFullResource {
 
         for (let x = 0, len = interceptors.length; x < len; x += 1) {
             const interceptor = interceptors[x];
-            interceptor(target);
+            const interceptorReturn = interceptor(target);
+
+            if (interceptorReturn) {
+                target = interceptorReturn;
+            }
         }
+
+        return target;
     }
 
     // https://gist.github.com/tjmehta/9204891
@@ -94,6 +100,7 @@ class RESTFullResource {
                 }
             }
 
+            xhr.withCredentials = true;
             xhr.open(request.method, request.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
@@ -119,7 +126,11 @@ class RESTFullResource {
                         return reject(error);
                     }
 
-                    this.applyInterceptors('response', { response, status: xhr.status });
+                    const changedResponse = this.applyInterceptors('response', { response, status: xhr.status });
+
+                    if (changedResponse) {
+                        response = changedResponse.response;
+                    }
 
                     if ([200, 201, 202].indexOf(xhr.status) >= 0) {
                         resolve(response);
