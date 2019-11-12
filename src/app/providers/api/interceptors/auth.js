@@ -7,7 +7,8 @@ RESTFullResource.intercept('request', (req) => {
 
 RESTFullResource.intercept('response', (res) => {
 	if (res.status === 401 && AuthProvider.isLoggedIn()) {
-		AuthProvider.logout();
-		window.location.reload();
+		AuthProvider.logout()
+			.then(() => window.location.reload())
+			.catch(() => window.location.reload());
 	}
 });

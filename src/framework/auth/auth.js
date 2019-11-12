@@ -37,7 +37,17 @@ class Auth {
     }
 
     static logout () {
-        localStorage.removeItem(this.USER_DATA_KEY);
+        return new Promise((resolve, reject) => {
+            localStorage.removeItem(this.USER_DATA_KEY);
+
+            if (Env.get('AUTH_DRIVER') === this.MODE_SESSION) {
+                AuthResource.destroy()
+                    .then(() => resolve())
+                    .catch(reject);
+            } else {
+                resolve();
+            }
+        });
     }
 }
 
