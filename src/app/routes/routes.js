@@ -9,3 +9,5 @@ Router.set('/', 'home');
 
 // @SW_ROUTES - START
 // @SW_ROUTES - END
+
+Router.set('*', '404');
