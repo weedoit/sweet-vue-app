@@ -10,6 +10,7 @@
 		color: $admin-layout-nav-color;
 		height: 60px;
 
+
 		//@if-use-mod-start:ui-layout-admin--block-brand
 		[ui-layout-admin--block="brand"] {
 			
@@ -182,6 +183,7 @@
 
 		[ui-layout-admin--block="main-content"] {
 			padding: $default-padding * 4;
+			height: 100%;
 
 			[ui-container] {
 				background-color: #fff;
