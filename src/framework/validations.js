@@ -8,14 +8,26 @@
             return [];
         }
 
-        return str.split('|').map(rule => {
+        return str.split('|').reduce((acc, rule) => {
             const [name, args] = rule.split(':');
 
-            return {
-                name,
-                args: (args || '').split(',') 
+            if (name.indexOf('@if') === 0) {
+                const matches = name.match(/^@if\((\w+),\s?(.*)\)$/);
+
+                if (matches) {
+                    const [ign, condition, realRule] = matches;
+                    const rules = parseRule(realRule).map(c => { c.condition = condition; return c;});
+                    return acc.concat(rules);
+                }
             }
-        });
+
+            acc.push({
+                name,
+                args: (args || '').split(',')
+            })
+
+            return acc;
+        }, []);
     };
 
     const applyErrors = function (errors) {
@@ -30,10 +42,7 @@
         const parentNode = input.parentNode;
 
         message.innerHTML = text;
-        message.classList.add(
-            'sh-validator-feedback'
-        );
-        
+        message.classList.add('sh-validator-feedback');
         parentNode.appendChild(message);
         parentNode.classList.add('sh-validator-has-error');
 
@@ -88,7 +97,7 @@
             };
         },
 
-        validate () {
+        validate (context = {}) {
             cleanUpErrors();
 
             for (let i = 0, len = inputs.length; i < len; i += 1) {
@@ -98,6 +107,12 @@
                 for (let x = 0, rlen = inputRules.length; x < rlen; x += 1) {
                     const rule = inputRules[x];
                     const tester = rules[rule.name];
+
+                    if (rule.condition && rule.condition !== '') {
+                        if (!context[rule.condition]) {
+                            continue;
+                        }
+                    }
 
                     if (tester) {
                         const params = [getInputValue(input)].concat(rule.args);
@@ -119,10 +134,6 @@
             applyErrors(errors);
 
             return errors.length === 0;
-        },
-
-        isValid () {
-            return this.validate();
         },
 
         attach (el) {
@@ -182,7 +193,10 @@
     }
 
     if (window.Vue) {
-        Vue.prototype.SweetValidator = API;
+        Vue.prototype.isValid = function () {
+            const editing = typeof this.$route.params.id !== 'undefined';
+            return API.validate({ edit: editing, create: !editing });
+        }
 
         Vue.directive('sh-validate', {
             bind (el) {
