@@ -20,7 +20,7 @@ $color-info:           #42B8DD;
 $color-danger:         #CA3C3C;
 $color-success:        #1CB841;
 $color-warning:        #DF7514;
-$default-background:   #EFF3F7;
+$default-background:   #efefef;
 $default-border-color: $color-default;
 
 // Buttons
@@ -38,7 +38,11 @@ $btn-xl-multiplier:  2;
 
 // -- Admin:
 
-$admin-layout-sidebar-background: #FFFFFF;
+$admin-layout-nav-background: #666;
+$admin-layout-nav-color: #fff;
+$admin-layout-nav-hover-background: $default-background;
+
+$admin-layout-sidebar-background: #666;
 $admin-layout-sidebar-width: 200px;
 $admin-layout-sidebar-width-collapsed: 60px;
 $admin-layout-default-background: $default-background;

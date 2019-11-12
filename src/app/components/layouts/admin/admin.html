@@ -7,13 +7,25 @@
 		    <img src="/favicon.png" alt="sweetheart">
 		</a>
 		<div ui-layout-admin--block="user-account" v-if="$user()">
-			<a href="#">
+			<div>
 				<img :src="$user().getPicture()" alt="user avatar">
 				<div class="user-info">
-					<span class="user-name">{{ $user().getName() }}</span>
-					<span class="user-role">{{ $user().getRole() }}</span>
+					<span class="user-name" :class="{norole: !$user().getRole()}"> {{ $user().getName() }}</span>
+					<span class="user-role" v-if="$user().getRole()">{{ $user().getRole().name }}</span>
 				</div>
-			</a>
+
+				<div class="dropdown">
+					<router-link :to="myAccountRoute" v-if="myAccountRoute">
+						<i ui-icon ui-icon--name="user"></i>
+						My account
+					</router-link>
+					
+					<a href="#" @click="logout">
+						<i ui-icon ui-icon--name="sign-out"></i>
+						Logout
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -24,9 +36,9 @@
 		<div class="menu" ui-layout-admin--block="menu-bottom">
 			<ul class="menu-list">
 				<li>
-					<a href="#">
-						<i ui-icon ui-icon--name="cogwheel"></i>
-						Settings
+					<a href="#" @click="logout">
+						<i ui-icon ui-icon--name="sign-out"></i>
+						Logout
 					</a>
 				</li>
 			</ul>
