@@ -9,15 +9,16 @@
 		background-color: $admin-layout-nav-background;
 		color: $admin-layout-nav-color;
 		height: 60px;
-
+	
+		.menu-toggler {
+			display: none;
+		}
 
 		//@if-use-mod-start:ui-layout-admin--block-brand
 		[ui-layout-admin--block="brand"] {
-			
 			display: block;
-			clear: both;
 			float: left;
-			width: 260px;
+			width: 180px;
 
 			img {
 				width: 20px;
@@ -193,4 +194,69 @@
 		}
 	}
 
+	//@if-use-mod-start:ui-layout-admin--mobile-true
+	&[ui-layout-admin--mobile="true"] {
+		@media screen and (max-width: 568px) {
+			height: calc(100vh - 50px);
+
+			[ui-layout-admin--block="nav"] {
+				padding: $default-padding;
+				line-height: 34px;
+				height: 50px;
+
+				.menu-toggler {
+					display: block;
+					width: 40px;
+					padding: $default-padding;
+					float: left;
+					height: 34px;
+					margin-right: $default-margin;
+
+					.bar {
+						width: 100%;
+						display: block;
+						background-color: #fff;
+						height: 3px;
+
+						&+.bar {
+							margin-top: 4px;
+						}
+					}
+				}				
+			}
+
+			[ui-layout-admin--block="user-account"] {
+				display: none;
+			}
+
+
+			[ui-layout-admin-sidebar] {
+				padding: $default-padding * 2;
+				position: absolute;
+				background-color: $admin-layout-default-background;
+				z-index: 10;
+				display: none;
+				height: calc(100vh - 50px);
+
+				&.open {
+					display: block;
+				}
+			}
+
+			[ui-layout-admin-content] {
+				padding: $default-padding;
+				width: 100%;
+				background-color: #fff;
+
+				[ui-layout-admin--block="main-content"] {
+					padding: 0;
+
+					[ui-container] {
+						padding: $default-padding;
+					}
+				}
+			}
+		}
+	}
+	//@if-use-mod-end
 }

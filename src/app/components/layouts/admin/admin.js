@@ -2,10 +2,9 @@ Layout('admin', {
     template: '@',
 
     data () {
-        console.log(Env.get('MY_ACCOUNT_PAGE_PATH'));
-
         return {
-            myAccountRoute: Env.get('MY_ACCOUNT_PAGE_PATH')
+            myAccountRoute: Env.get('MY_ACCOUNT_PAGE_PATH'),
+            menuOpen: false
         };
     },
 
@@ -16,6 +15,14 @@ Layout('admin', {
             AuthProvider.logout()
                 .then(redirect)
                 .catch(redirect);
+        },
+
+        toggleMenu () {
+            this.menuOpen = !this.menuOpen;
+        },
+
+        closeMenu () {
+            this.menuOpen = false;
         }
     }
 })

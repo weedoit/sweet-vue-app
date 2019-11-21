@@ -1,5 +1,10 @@
-<div ui-layout-admin>
+<div ui-layout-admin ui-layout-admin--mobile="true">
 	<div ui-layout-admin--block="nav">
+		<a href="#" class="menu-toggler" @click="toggleMenu()">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</a>
 		<a href="/" class="brand" ui-layout-admin--block="brand">
 		    <span class="brand-text">
 		    	sweetheart
@@ -29,7 +34,7 @@
 		</div>
 	</div>
 
-	<div ui-layout-admin-sidebar>
+	<div ui-layout-admin-sidebar v-bind:class="{open: menuOpen}">
 		<div class="menu" ui-layout-admin--block="menu-top">
 			<ui-admin-menu />
 		</div>
@@ -44,7 +49,7 @@
 			</ul>
 		</div>
 	</div>
-	<div ui-layout-admin-content>
+	<div ui-layout-admin-content @click="closeMenu()">
 		<div ui-layout-admin--block="main-content">
 			<slot></slot>
 		</div>
