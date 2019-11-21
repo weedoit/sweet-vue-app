@@ -15,6 +15,7 @@ Vue.use(VueTheMask);
 Env.set('CURRENT_ENV', 'LOCAL');
 
 // @SH_ENV - START - DONT REMOVE THIS LINE!!
+Env.set('PROJECT_NAME', 'sweetheart');
 Env.set('API_URL', 'http://your.api.com');
 Env.set('AUTH_DRIVER', 'session');
 Env.set('AUTH_ENDPOINT', '/login');
