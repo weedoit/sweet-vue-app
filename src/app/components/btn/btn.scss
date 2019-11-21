@@ -1,4 +1,4 @@
-@import '../theme';
+@import '../../theme';
 
 @mixin btn-color ($name, $background, $color) {
 	&[ui-btn--color="#{$name}"] {

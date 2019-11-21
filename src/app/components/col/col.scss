@@ -1,4 +1,4 @@
-@import '../theme';
+@import '../../theme';
 
 @function col-width ($column) {
     @return calc((100% / #{$columns} * #{$column}) - #{$gutter});
@@ -21,7 +21,6 @@
     }
 }
 
-
 [ui-row] {
     margin: 0 #{$gutter / 2 * -1};
     position: relative;
@@ -30,165 +29,139 @@
         float: left;
         position: relative;
         
-        @include columm-size(1); //@if-use-mod:ui-col--size-1
-        @include columm-size(2); //@if-use-mod:ui-col--size-2
-        @include columm-size(3); //@if-use-mod:ui-col--size-3
-        @include columm-size(4); //@if-use-mod:ui-col--size-4
-        @include columm-size(5); //@if-use-mod:ui-col--size-5
-        @include columm-size(6); //@if-use-mod:ui-col--size-6
-        @include columm-size(7); //@if-use-mod:ui-col--size-7
-        @include columm-size(8); //@if-use-mod:ui-col--size-8
-        @include columm-size(9); //@if-use-mod:ui-col--size-9
-        @include columm-size(10); //@if-use-mod:ui-col--size-10
-        @include columm-size(11); //@if-use-mod:ui-col--size-11
-        @include columm-size(12); //@if-use-mod:ui-col--size-12
+        @include mq('xs') {
+            @include columm-size(1, 'xs'); //@if-use-mod:ui-col-xs--size-1
+            @include columm-size(2, 'xs'); //@if-use-mod:ui-col-xs--size-2
+            @include columm-size(3, 'xs'); //@if-use-mod:ui-col-xs--size-3
+            @include columm-size(4, 'xs'); //@if-use-mod:ui-col-xs--size-4
+            @include columm-size(5, 'xs'); //@if-use-mod:ui-col-xs--size-5
+            @include columm-size(6, 'xs'); //@if-use-mod:ui-col-xs--size-6
+            @include columm-size(7, 'xs'); //@if-use-mod:ui-col-xs--size-7
+            @include columm-size(8, 'xs'); //@if-use-mod:ui-col-xs--size-8
+            @include columm-size(9, 'xs'); //@if-use-mod:ui-col-xs--size-9
+            @include columm-size(10, 'xs'); //@if-use-mod:ui-col-xs--size-10
+            @include columm-size(11, 'xs'); //@if-use-mod:ui-col-xs--size-11
+            @include columm-size(12, 'xs'); //@if-use-mod:ui-col-xs--size-12
 
-        @include offset-size(1); //@if-use-mod:ui-col--offset-1
-        @include offset-size(2); //@if-use-mod:ui-col--offset-2
-        @include offset-size(3); //@if-use-mod:ui-col--offset-3
-        @include offset-size(4); //@if-use-mod:ui-col--offset-4
-        @include offset-size(5); //@if-use-mod:ui-col--offset-5
-        @include offset-size(6); //@if-use-mod:ui-col--offset-6
-        @include offset-size(7); //@if-use-mod:ui-col--offset-7
-        @include offset-size(8); //@if-use-mod:ui-col--offset-8
-        @include offset-size(9); //@if-use-mod:ui-col--offset-9
-        @include offset-size(10); //@if-use-mod:ui-col--offset-10
-        @include offset-size(11); //@if-use-mod:ui-col--offset-11
-
-
-        @media screen and (max-width: 567px) {
-            @include columm-size(1); //@if-use-mod:ui-col-xs--size-1
-            @include columm-size(2); //@if-use-mod:ui-col-xs--size-2
-            @include columm-size(3); //@if-use-mod:ui-col-xs--size-3
-            @include columm-size(4); //@if-use-mod:ui-col-xs--size-4
-            @include columm-size(5); //@if-use-mod:ui-col-xs--size-5
-            @include columm-size(6); //@if-use-mod:ui-col-xs--size-6
-            @include columm-size(7); //@if-use-mod:ui-col-xs--size-7
-            @include columm-size(8); //@if-use-mod:ui-col-xs--size-8
-            @include columm-size(9); //@if-use-mod:ui-col-xs--size-9
-            @include columm-size(10); //@if-use-mod:ui-col-xs--size-10
-            @include columm-size(11); //@if-use-mod:ui-col-xs--size-11
-            @include columm-size(12); //@if-use-mod:ui-col-xs--size-12
-
-            @include offset-size(1); //@if-use-mod:ui-col-xs--offset-1
-            @include offset-size(2); //@if-use-mod:ui-col-xs--offset-2
-            @include offset-size(3); //@if-use-mod:ui-col-xs--offset-3
-            @include offset-size(4); //@if-use-mod:ui-col-xs--offset-4
-            @include offset-size(5); //@if-use-mod:ui-col-xs--offset-5
-            @include offset-size(6); //@if-use-mod:ui-col-xs--offset-6
-            @include offset-size(7); //@if-use-mod:ui-col-xs--offset-7
-            @include offset-size(8); //@if-use-mod:ui-col-xs--offset-8
-            @include offset-size(9); //@if-use-mod:ui-col-xs--offset-9
-            @include offset-size(10); //@if-use-mod:ui-col-xs--offset-10
-            @include offset-size(11); //@if-use-mod:ui-col-xs--offset-11
+            @include offset-size(1, 'xs'); //@if-use-mod:ui-col-xs--offset-1
+            @include offset-size(2, 'xs'); //@if-use-mod:ui-col-xs--offset-2
+            @include offset-size(3, 'xs'); //@if-use-mod:ui-col-xs--offset-3
+            @include offset-size(4, 'xs'); //@if-use-mod:ui-col-xs--offset-4
+            @include offset-size(5, 'xs'); //@if-use-mod:ui-col-xs--offset-5
+            @include offset-size(6, 'xs'); //@if-use-mod:ui-col-xs--offset-6
+            @include offset-size(7, 'xs'); //@if-use-mod:ui-col-xs--offset-7
+            @include offset-size(8, 'xs'); //@if-use-mod:ui-col-xs--offset-8
+            @include offset-size(9, 'xs'); //@if-use-mod:ui-col-xs--offset-9
+            @include offset-size(10, 'xs'); //@if-use-mod:ui-col-xs--offset-10
+            @include offset-size(11, 'xs'); //@if-use-mod:ui-col-xs--offset-11
         }
 
-        @media screen and (min-width: 568px) {
-            @include columm-size(1); //@if-use-mod:ui-col-sm--size-1
-            @include columm-size(2); //@if-use-mod:ui-col-sm--size-2
-            @include columm-size(3); //@if-use-mod:ui-col-sm--size-3
-            @include columm-size(4); //@if-use-mod:ui-col-sm--size-4
-            @include columm-size(5); //@if-use-mod:ui-col-sm--size-5
-            @include columm-size(6); //@if-use-mod:ui-col-sm--size-6
-            @include columm-size(7); //@if-use-mod:ui-col-sm--size-7
-            @include columm-size(8); //@if-use-mod:ui-col-sm--size-8
-            @include columm-size(9); //@if-use-mod:ui-col-sm--size-9
-            @include columm-size(10); //@if-use-mod:ui-col-sm--size-10
-            @include columm-size(11); //@if-use-mod:ui-col-sm--size-11
-            @include columm-size(12); //@if-use-mod:ui-col-sm--size-12
+        @include mq('sm') {
+            @include columm-size(1, 'sm'); //@if-use-mod:ui-col-sm--size-1
+            @include columm-size(2, 'sm'); //@if-use-mod:ui-col-sm--size-2
+            @include columm-size(3, 'sm'); //@if-use-mod:ui-col-sm--size-3
+            @include columm-size(4, 'sm'); //@if-use-mod:ui-col-sm--size-4
+            @include columm-size(5, 'sm'); //@if-use-mod:ui-col-sm--size-5
+            @include columm-size(6, 'sm'); //@if-use-mod:ui-col-sm--size-6
+            @include columm-size(7, 'sm'); //@if-use-mod:ui-col-sm--size-7
+            @include columm-size(8, 'sm'); //@if-use-mod:ui-col-sm--size-8
+            @include columm-size(9, 'sm'); //@if-use-mod:ui-col-sm--size-9
+            @include columm-size(10, 'sm'); //@if-use-mod:ui-col-sm--size-10
+            @include columm-size(11, 'sm'); //@if-use-mod:ui-col-sm--size-11
+            @include columm-size(12, 'sm'); //@if-use-mod:ui-col-sm--size-12
 
-            @include offset-size(1); //@if-use-mod:ui-col-sm--offset-1
-            @include offset-size(2); //@if-use-mod:ui-col-sm--offset-2
-            @include offset-size(3); //@if-use-mod:ui-col-sm--offset-3
-            @include offset-size(4); //@if-use-mod:ui-col-sm--offset-4
-            @include offset-size(5); //@if-use-mod:ui-col-sm--offset-5
-            @include offset-size(6); //@if-use-mod:ui-col-sm--offset-6
-            @include offset-size(7); //@if-use-mod:ui-col-sm--offset-7
-            @include offset-size(8); //@if-use-mod:ui-col-sm--offset-8
-            @include offset-size(9); //@if-use-mod:ui-col-sm--offset-9
-            @include offset-size(10); //@if-use-mod:ui-col-sm--offset-10
-            @include offset-size(11); //@if-use-mod:ui-col-sm--offset-11
+            @include offset-size(1, 'sm'); //@if-use-mod:ui-col-sm--offset-1
+            @include offset-size(2, 'sm'); //@if-use-mod:ui-col-sm--offset-2
+            @include offset-size(3, 'sm'); //@if-use-mod:ui-col-sm--offset-3
+            @include offset-size(4, 'sm'); //@if-use-mod:ui-col-sm--offset-4
+            @include offset-size(5, 'sm'); //@if-use-mod:ui-col-sm--offset-5
+            @include offset-size(6, 'sm'); //@if-use-mod:ui-col-sm--offset-6
+            @include offset-size(7, 'sm'); //@if-use-mod:ui-col-sm--offset-7
+            @include offset-size(8, 'sm'); //@if-use-mod:ui-col-sm--offset-8
+            @include offset-size(9, 'sm'); //@if-use-mod:ui-col-sm--offset-9
+            @include offset-size(10, 'sm'); //@if-use-mod:ui-col-sm--offset-10
+            @include offset-size(11, 'sm'); //@if-use-mod:ui-col-sm--offset-11
         }
 
-        @media screen and (min-width: 768px) {
-            @include columm-size(1); //@if-use-mod:ui-col-md--size-1
-            @include columm-size(2); //@if-use-mod:ui-col-md--size-2
-            @include columm-size(3); //@if-use-mod:ui-col-md--size-3
-            @include columm-size(4); //@if-use-mod:ui-col-md--size-4
-            @include columm-size(5); //@if-use-mod:ui-col-md--size-5
-            @include columm-size(6); //@if-use-mod:ui-col-md--size-6
-            @include columm-size(7); //@if-use-mod:ui-col-md--size-7
-            @include columm-size(8); //@if-use-mod:ui-col-md--size-8
-            @include columm-size(9); //@if-use-mod:ui-col-md--size-9
-            @include columm-size(10); //@if-use-mod:ui-col-md--size-10
-            @include columm-size(11); //@if-use-mod:ui-col-md--size-11
-            @include columm-size(12); //@if-use-mod:ui-col-md--size-12
+        @include mq('md') {
+            @include columm-size(1, 'md'); //@if-use-mod:ui-col-md--size-1
+            @include columm-size(2, 'md'); //@if-use-mod:ui-col-md--size-2
+            @include columm-size(3, 'md'); //@if-use-mod:ui-col-md--size-3
+            @include columm-size(4, 'md'); //@if-use-mod:ui-col-md--size-4
+            @include columm-size(5, 'md'); //@if-use-mod:ui-col-md--size-5
+            @include columm-size(6, 'md'); //@if-use-mod:ui-col-md--size-6
+            @include columm-size(7, 'md'); //@if-use-mod:ui-col-md--size-7
+            @include columm-size(8, 'md'); //@if-use-mod:ui-col-md--size-8
+            @include columm-size(9, 'md'); //@if-use-mod:ui-col-md--size-9
+            @include columm-size(10, 'md'); //@if-use-mod:ui-col-md--size-10
+            @include columm-size(11, 'md'); //@if-use-mod:ui-col-md--size-11
+            @include columm-size(12, 'md'); //@if-use-mod:ui-col-md--size-12
 
-            @include offset-size(1); //@if-use-mod:ui-col-md--offset-1
-            @include offset-size(2); //@if-use-mod:ui-col-md--offset-2
-            @include offset-size(3); //@if-use-mod:ui-col-md--offset-3
-            @include offset-size(4); //@if-use-mod:ui-col-md--offset-4
-            @include offset-size(5); //@if-use-mod:ui-col-md--offset-5
-            @include offset-size(6); //@if-use-mod:ui-col-md--offset-6
-            @include offset-size(7); //@if-use-mod:ui-col-md--offset-7
-            @include offset-size(8); //@if-use-mod:ui-col-md--offset-8
-            @include offset-size(9); //@if-use-mod:ui-col-md--offset-9
-            @include offset-size(10); //@if-use-mod:ui-col-md--offset-10
-            @include offset-size(11); //@if-use-mod:ui-col-md--offset-11
+            @include offset-size(1, 'md'); //@if-use-mod:ui-col-md--offset-1
+            @include offset-size(2, 'md'); //@if-use-mod:ui-col-md--offset-2
+            @include offset-size(3, 'md'); //@if-use-mod:ui-col-md--offset-3
+            @include offset-size(4, 'md'); //@if-use-mod:ui-col-md--offset-4
+            @include offset-size(5, 'md'); //@if-use-mod:ui-col-md--offset-5
+            @include offset-size(6, 'md'); //@if-use-mod:ui-col-md--offset-6
+            @include offset-size(7, 'md'); //@if-use-mod:ui-col-md--offset-7
+            @include offset-size(8, 'md'); //@if-use-mod:ui-col-md--offset-8
+            @include offset-size(9, 'md'); //@if-use-mod:ui-col-md--offset-9
+            @include offset-size(10, 'md'); //@if-use-mod:ui-col-md--offset-10
+            @include offset-size(11, 'md'); //@if-use-mod:ui-col-md--offset-11
         }
 
-        @media screen and (min-width: 1024px) {
-            @include columm-size(1); //@if-use-mod:ui-col-lg--size-1
-            @include columm-size(2); //@if-use-mod:ui-col-lg--size-2
-            @include columm-size(3); //@if-use-mod:ui-col-lg--size-3
-            @include columm-size(4); //@if-use-mod:ui-col-lg--size-4
-            @include columm-size(5); //@if-use-mod:ui-col-lg--size-5
-            @include columm-size(6); //@if-use-mod:ui-col-lg--size-6
-            @include columm-size(7); //@if-use-mod:ui-col-lg--size-7
-            @include columm-size(8); //@if-use-mod:ui-col-lg--size-8
-            @include columm-size(9); //@if-use-mod:ui-col-lg--size-9
-            @include columm-size(10); //@if-use-mod:ui-col-lg--size-10
-            @include columm-size(11); //@if-use-mod:ui-col-lg--size-11
-            @include columm-size(12); //@if-use-mod:ui-col-lg--size-12
+        @include mq('lg') {
+            @include columm-size(1, 'lg'); //@if-use-mod:ui-col-lg--size-1
+            @include columm-size(2, 'lg'); //@if-use-mod:ui-col-lg--size-2
+            @include columm-size(3, 'lg'); //@if-use-mod:ui-col-lg--size-3
+            @include columm-size(4, 'lg'); //@if-use-mod:ui-col-lg--size-4
+            @include columm-size(5, 'lg'); //@if-use-mod:ui-col-lg--size-5
+            @include columm-size(6, 'lg'); //@if-use-mod:ui-col-lg--size-6
+            @include columm-size(7, 'lg'); //@if-use-mod:ui-col-lg--size-7
+            @include columm-size(8, 'lg'); //@if-use-mod:ui-col-lg--size-8
+            @include columm-size(9, 'lg'); //@if-use-mod:ui-col-lg--size-9
+            @include columm-size(10, 'lg'); //@if-use-mod:ui-col-lg--size-10
+            @include columm-size(11, 'lg'); //@if-use-mod:ui-col-lg--size-11
+            @include columm-size(12, 'lg'); //@if-use-mod:ui-col-lg--size-12
 
-            @include offset-size(1); //@if-use-mod:ui-col-lg--offset-1
-            @include offset-size(2); //@if-use-mod:ui-col-lg--offset-2
-            @include offset-size(3); //@if-use-mod:ui-col-lg--offset-3
-            @include offset-size(4); //@if-use-mod:ui-col-lg--offset-4
-            @include offset-size(5); //@if-use-mod:ui-col-lg--offset-5
-            @include offset-size(6); //@if-use-mod:ui-col-lg--offset-6
-            @include offset-size(7); //@if-use-mod:ui-col-lg--offset-7
-            @include offset-size(8); //@if-use-mod:ui-col-lg--offset-8
-            @include offset-size(9); //@if-use-mod:ui-col-lg--offset-9
-            @include offset-size(10); //@if-use-mod:ui-col-lg--offset-10
-            @include offset-size(11); //@if-use-mod:ui-col-lg--offset-11
+            @include offset-size(1, 'lg'); //@if-use-mod:ui-col-lg--offset-1
+            @include offset-size(2, 'lg'); //@if-use-mod:ui-col-lg--offset-2
+            @include offset-size(3, 'lg'); //@if-use-mod:ui-col-lg--offset-3
+            @include offset-size(4, 'lg'); //@if-use-mod:ui-col-lg--offset-4
+            @include offset-size(5, 'lg'); //@if-use-mod:ui-col-lg--offset-5
+            @include offset-size(6, 'lg'); //@if-use-mod:ui-col-lg--offset-6
+            @include offset-size(7, 'lg'); //@if-use-mod:ui-col-lg--offset-7
+            @include offset-size(8, 'lg'); //@if-use-mod:ui-col-lg--offset-8
+            @include offset-size(9, 'lg'); //@if-use-mod:ui-col-lg--offset-9
+            @include offset-size(10, 'lg'); //@if-use-mod:ui-col-lg--offset-10
+            @include offset-size(11, 'lg'); //@if-use-mod:ui-col-lg--offset-11
         }
 
-        @media screen and (min-width: 1280px) {
-            @include columm-size(1); //@if-use-mod:ui-col-xl--size-1
-            @include columm-size(2); //@if-use-mod:ui-col-xl--size-2
-            @include columm-size(3); //@if-use-mod:ui-col-xl--size-3
-            @include columm-size(4); //@if-use-mod:ui-col-xl--size-4
-            @include columm-size(5); //@if-use-mod:ui-col-xl--size-5
-            @include columm-size(6); //@if-use-mod:ui-col-xl--size-6
-            @include columm-size(7); //@if-use-mod:ui-col-xl--size-7
-            @include columm-size(8); //@if-use-mod:ui-col-xl--size-8
-            @include columm-size(9); //@if-use-mod:ui-col-xl--size-9
-            @include columm-size(10); //@if-use-mod:ui-col-xl--size-10
-            @include columm-size(11); //@if-use-mod:ui-col-xl--size-11
-            @include columm-size(12); //@if-use-mod:ui-col-xl--size-12
+        @include mq('xl') {
+            @include columm-size(1, 'xl'); //@if-use-mod:ui-col-xl--size-1
+            @include columm-size(2, 'xl'); //@if-use-mod:ui-col-xl--size-2
+            @include columm-size(3, 'xl'); //@if-use-mod:ui-col-xl--size-3
+            @include columm-size(4, 'xl'); //@if-use-mod:ui-col-xl--size-4
+            @include columm-size(5, 'xl'); //@if-use-mod:ui-col-xl--size-5
+            @include columm-size(6, 'xl'); //@if-use-mod:ui-col-xl--size-6
+            @include columm-size(7, 'xl'); //@if-use-mod:ui-col-xl--size-7
+            @include columm-size(8, 'xl'); //@if-use-mod:ui-col-xl--size-8
+            @include columm-size(9, 'xl'); //@if-use-mod:ui-col-xl--size-9
+            @include columm-size(10, 'xl'); //@if-use-mod:ui-col-xl--size-10
+            @include columm-size(11, 'xl'); //@if-use-mod:ui-col-xl--size-11
+            @include columm-size(12, 'xl'); //@if-use-mod:ui-col-xl--size-12
 
-            @include offset-size(1); //@if-use-mod:ui-col-xl--offset-1
-            @include offset-size(2); //@if-use-mod:ui-col-xl--offset-2
-            @include offset-size(3); //@if-use-mod:ui-col-xl--offset-3
-            @include offset-size(4); //@if-use-mod:ui-col-xl--offset-4
-            @include offset-size(5); //@if-use-mod:ui-col-xl--offset-5
-            @include offset-size(6); //@if-use-mod:ui-col-xl--offset-6
-            @include offset-size(7); //@if-use-mod:ui-col-xl--offset-7
-            @include offset-size(8); //@if-use-mod:ui-col-xl--offset-8
-            @include offset-size(9); //@if-use-mod:ui-col-xl--offset-9
-            @include offset-size(10); //@if-use-mod:ui-col-xl--offset-10
-            @include offset-size(11); //@if-use-mod:ui-col-xl--offset-11
+            @include offset-size(1, 'xl'); //@if-use-mod:ui-col-xl--offset-1
+            @include offset-size(2, 'xl'); //@if-use-mod:ui-col-xl--offset-2
+            @include offset-size(3, 'xl'); //@if-use-mod:ui-col-xl--offset-3
+            @include offset-size(4, 'xl'); //@if-use-mod:ui-col-xl--offset-4
+            @include offset-size(5, 'xl'); //@if-use-mod:ui-col-xl--offset-5
+            @include offset-size(6, 'xl'); //@if-use-mod:ui-col-xl--offset-6
+            @include offset-size(7, 'xl'); //@if-use-mod:ui-col-xl--offset-7
+            @include offset-size(8, 'xl'); //@if-use-mod:ui-col-xl--offset-8
+            @include offset-size(9, 'xl'); //@if-use-mod:ui-col-xl--offset-9
+            @include offset-size(10, 'xl'); //@if-use-mod:ui-col-xl--offset-10
+            @include offset-size(11, 'xl'); //@if-use-mod:ui-col-xl--offset-11
         }
     }
 

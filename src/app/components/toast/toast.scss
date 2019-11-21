@@ -1,0 +1,55 @@
+.sh-toast-host {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: $default-padding * 4 0;
+	overflow: hidden;
+	
+	.sh-toast {
+		display: block;
+		text-align: center;
+		transition: all .5s ease;
+		visibility: hidden;
+		opacity: 0;
+		
+		.sh-toast-content {
+			background: $color-default;
+			display: inline-block;
+			height: $base-font-size * 2.4;
+			line-height: $base-font-size * 2.4;
+			font-size: $base-font-size;
+			padding: 0 $default-padding * 4;
+			border-radius: ($base-font-size * 1.2);
+		}
+
+		&.sh-toast-error {
+			.sh-toast-content {
+				background: $color-danger;
+				color: #fff;
+			}
+		}
+
+		&.sh-toast-success {
+			.sh-toast-content {
+				background: $color-danger;
+				color: #fff;
+			}
+		}
+
+		&.sh-toast-info {
+			.sh-toast-content {
+				background: $color-info;
+				color: #fff;
+			}
+		}
+
+		&+.sh-toast {
+			margin-top: $default-margin;
+		}
+
+		&.visible {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

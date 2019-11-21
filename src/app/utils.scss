@@ -1,0 +1,45 @@
+$breakpoints: (
+    xs: 567px, // max
+    sm: 568px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px
+);
+
+@mixin mq($breakpoint) {
+    @if ($breakpoint == 'xs') {
+        @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+@mixin hidden-size ($prefix) {
+    &[ui-hidden--in="#{$prefix}"] {
+        display: none;
+    }
+}
+
+@include mq('xs') {
+    @include hidden-size('xs'); //@if-use-mod:ui-hidden--in-xs
+}
+
+@include mq('sm') {
+    @include hidden-size('sm'); //@if-use-mod:ui-hidden--in-sm
+}
+
+@include mq('md') {
+    @include hidden-size('md'); //@if-use-mod:ui-hidden--in-md
+}
+
+@include mq('lg') {
+    @include hidden-size('lg'); //@if-use-mod:ui-hidden--in-lg
+}
+
+@include mq('xl') {
+    @include hidden-size('xl'); //@if-use-mod:ui-hidden--in-xl
+}
