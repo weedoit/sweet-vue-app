@@ -1,4 +1,5 @@
 @import '../../theme';
+@import '../../utils';
 
 @function col-width ($column) {
     @return calc((100% / #{$columns} * #{$column}) - #{$gutter});
