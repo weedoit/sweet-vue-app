@@ -1,262 +1,262 @@
 @import '../../../theme';
 
 [ui-layout-admin] {
-	height: 100%;
-	background-color: $admin-layout-default-background;
+    height: 100%;
+    background-color: $admin-layout-default-background;
 
-	[ui-layout-admin--block="nav"] {
-		padding: $default-padding * 2 $default-padding * 4;
-		background-color: $admin-layout-nav-background;
-		color: $admin-layout-nav-color;
-		height: 60px;
-	
-		.menu-toggler {
-			display: none;
-		}
+    [ui-layout-admin--block="nav"] {
+        padding: $default-padding * 2 $default-padding * 4;
+        background-color: $admin-layout-nav-background;
+        color: $admin-layout-nav-color;
+        height: 60px;
 
-		//@if-use-mod-start:ui-layout-admin--block-brand
-		[ui-layout-admin--block="brand"] {
-			display: block;
-			float: left;
-			width: 180px;
+        .menu-toggler {
+            display: none;
+        }
 
-			img {
-				width: 20px;
-				height: 20px;
-				display: inline-block;
-				vertical-align: middle;
-			}
+        //@if-use-mod-start:ui-layout-admin--block-brand
+        [ui-layout-admin--block="brand"] {
+            display: block;
+            float: left;
+            width: 180px;
 
-			.brand-text {
-				line-height: 28px;
-				font-weight: 900;
-				font-size: 28px;
-				letter-spacing: -1.5px;
-				vertical-align: middle;
-				color: $admin-layout-nav-color;
-			}
-		}
-		//@if-use-mod-end
+            img {
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                vertical-align: middle;
+            }
 
-		//@if-use-mod-start:ui-layout-admin--block-user-account
-		[ui-layout-admin--block="user-account"] {
-			width: 180px;
-			position: absolute;
-			top: 0;
-			right: $default-margin * 4;
-			padding: $default-padding * 2 0;
+            .brand-text {
+                line-height: 28px;
+                font-weight: 900;
+                font-size: 28px;
+                letter-spacing: -1.5px;
+                vertical-align: middle;
+                color: $admin-layout-nav-color;
+            }
+        }
+        //@if-use-mod-end
 
-			img {
-				float: right;
-				width: 28px;
-				height: 28px;
-				display: block;
-				border-radius: 50%;
-				border: 1px solid $default-border-color;
-				background: #fff
-			}
+        //@if-use-mod-start:ui-layout-admin--block-user-account
+        [ui-layout-admin--block="user-account"] {
+            width: 180px;
+            position: absolute;
+            top: 0;
+            right: $default-margin * 4;
+            padding: $default-padding * 2 0;
 
-			.user-info {
-				width: 152px;
-				float: right;
-			}
+            img {
+                float: right;
+                width: 28px;
+                height: 28px;
+                display: block;
+                border-radius: 50%;
+                border: 1px solid $default-border-color;
+                background: #fff
+            }
 
-			.user-name, .user-role {
-				font-size: 14px;
-				display: block;
-				line-height: 16px;
-				padding-right: $default-padding;
-				text-align: right;
-				color: $admin-layout-nav-color;
-			}
+            .user-info {
+                width: 152px;
+                float: right;
+            }
 
-			.user-role {
-				text-transform: uppercase;
-				font-size: 10px;
-				line-height: 12px;
-			}
+            .user-name, .user-role {
+                font-size: 14px;
+                display: block;
+                line-height: 16px;
+                padding-right: $default-padding;
+                text-align: right;
+                color: $admin-layout-nav-color;
+            }
 
-			.user-name.norole {
-				line-height: 28px;
-			}
+            .user-role {
+                text-transform: uppercase;
+                font-size: 10px;
+                line-height: 12px;
+            }
 
-			.dropdown {
-				visibility: hidden;
-				position: absolute;
-				right: 0;
-				top: 50px;
-				background-color: #fff;
-				border-radius: $default-border-radius;
-				text-align: left;
-				min-width: 150px;
-				padding: $default-padding 0;
-				box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.1);
+            .user-name.norole {
+                line-height: 28px;
+            }
 
-				a {
-					display: block;
-					padding: $default-padding $default-padding * 2;
+            .dropdown {
+                visibility: hidden;
+                position: absolute;
+                right: 0;
+                top: 50px;
+                background-color: #fff;
+                border-radius: $default-border-radius;
+                text-align: left;
+                min-width: 150px;
+                padding: $default-padding 0;
+                box-shadow: 1px 1px 16px 0px rgba(0,0,0,0.1);
 
-					&:hover {
-						background-color: $admin-layout-nav-hover-background;
-					}
+                a {
+                    display: block;
+                    padding: $default-padding $default-padding * 2;
 
-					[ui-icon] {
-						margin-right: $default-margin;
-					}
-				}
+                    &:hover {
+                        background-color: $admin-layout-nav-hover-background;
+                    }
 
-				&::after {
-					position: absolute;
-					content: '';
-					display: block;
-					height: 10px;
-					width: 10px;
-					border: 5px solid transparent;
-					border-bottom-color: #fff;
-					box-sizing: border-box;
-					top: -10px;
-					right: $default-margin;
-				}
-			}
+                    [ui-icon] {
+                        margin-right: $default-margin;
+                    }
+                }
 
-			&:hover {
-				.dropdown {
-					visibility: visible;
-				}
-			}
-		}
-		//@if-use-mod-end
+                &::after {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    height: 10px;
+                    width: 10px;
+                    border: 5px solid transparent;
+                    border-bottom-color: #fff;
+                    box-sizing: border-box;
+                    top: -10px;
+                    right: $default-margin;
+                }
+            }
 
-		&:after{
-			content: '';
-			display: block;
-			clear: both;
-		}
-	}
+            &:hover {
+                .dropdown {
+                    visibility: visible;
+                }
+            }
+        }
+        //@if-use-mod-end
 
-	[ui-layout-admin-sidebar] {
-		width: $admin-layout-sidebar-width;
-		height: calc(100vh - 60px);
-		float: left;
-		padding: $default-padding * 4;
-		position: relative;
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
 
-		.menu {
-			ul > li {
-				a {
-					line-height: 30px;
-				}
+    [ui-layout-admin-sidebar] {
+        width: $admin-layout-sidebar-width;
+        height: calc(100vh - 60px);
+        float: left;
+        padding: $default-padding * 4;
+        position: relative;
 
-				[ui-icon] {
-					font-size: 16px;
-					margin-right: $default-margin;
-				}
+        .menu {
+            ul > li {
+                a {
+                    line-height: 30px;
+                }
 
-				&.separator {
-					text-transform: uppercase;
-					font-size: 12px;
-					line-height: 12px;
-					margin-bottom: 12px;
-					font-weight: 500;
-					display: block;
-				}
+                [ui-icon] {
+                    font-size: 16px;
+                    margin-right: $default-margin;
+                }
 
-				& + .separator {
-					margin-top:  $default-margin *2 ;
-				}
-			}
-		}
+                &.separator {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    line-height: 12px;
+                    margin-bottom: 12px;
+                    font-weight: 500;
+                    display: block;
+                }
 
-		//@if-use-mod-start:ui-layout-admin--block-menu-bottom
-		[ui-layout-admin--block="menu-bottom"] {
-			position: absolute;
-			bottom: $default-padding;
-			width:  $admin-layout-sidebar-width - ($default-padding * 4);
-		}
-		//@if-use-mod-end
-	}
+                & + .separator {
+                    margin-top:  $default-margin *2 ;
+                }
+            }
+        }
 
-	[ui-layout-admin-content] {
-		width: calc(100% - #{$admin-layout-sidebar-width});
-		height: calc(100vh - 60px);
-		overflow: auto;
+        //@if-use-mod-start:ui-layout-admin--block-menu-bottom
+        [ui-layout-admin--block="menu-bottom"] {
+            position: absolute;
+            bottom: $default-padding;
+            width:  $admin-layout-sidebar-width - ($default-padding * 4);
+        }
+        //@if-use-mod-end
+    }
 
-
-		[ui-layout-admin--block="main-content"] {
-			padding: $default-padding * 4;
-			height: 100%;
-
-			[ui-container] {
-				background-color: #fff;
-				border-radius: $default-border-radius;
-				padding: $default-padding * 4;				
-			}
-		}
-	}
-
-	//@if-use-mod-start:ui-layout-admin--mobile-true
-	&[ui-layout-admin--mobile="true"] {
-		@media screen and (max-width: 568px) {
-			height: calc(100vh - 50px);
-
-			[ui-layout-admin--block="nav"] {
-				padding: $default-padding;
-				line-height: 34px;
-				height: 50px;
-
-				.menu-toggler {
-					display: block;
-					width: 40px;
-					padding: $default-padding;
-					float: left;
-					height: 34px;
-					margin-right: $default-margin;
-
-					.bar {
-						width: 100%;
-						display: block;
-						background-color: #fff;
-						height: 3px;
-
-						&+.bar {
-							margin-top: 4px;
-						}
-					}
-				}				
-			}
-
-			[ui-layout-admin--block="user-account"] {
-				display: none;
-			}
+    [ui-layout-admin-content] {
+        width: calc(100% - #{$admin-layout-sidebar-width});
+        height: calc(100vh - 60px);
+        overflow: auto;
 
 
-			[ui-layout-admin-sidebar] {
-				padding: $default-padding * 2;
-				position: absolute;
-				background-color: $admin-layout-default-background;
-				z-index: 10;
-				display: none;
-				height: calc(100vh - 50px);
+        [ui-layout-admin--block="main-content"] {
+            padding: $default-padding * 4;
+            height: 100%;
 
-				&.open {
-					display: block;
-				}
-			}
+            [ui-container] {
+                background-color: #fff;
+                border-radius: $default-border-radius;
+                padding: $default-padding * 4;				
+            }
+        }
+    }
 
-			[ui-layout-admin-content] {
-				padding: $default-padding;
-				width: 100%;
-				background-color: #fff;
+    //@if-use-mod-start:ui-layout-admin--mobile-true
+    &[ui-layout-admin--mobile="true"] {
+        @media screen and (max-width: 568px) {
+            height: calc(100vh - 50px);
 
-				[ui-layout-admin--block="main-content"] {
-					padding: 0;
+            [ui-layout-admin--block="nav"] {
+                padding: $default-padding;
+                line-height: 34px;
+                height: 50px;
 
-					[ui-container] {
-						padding: $default-padding;
-					}
-				}
-			}
-		}
-	}
-	//@if-use-mod-end
+                .menu-toggler {
+                    display: block;
+                    width: 40px;
+                    padding: $default-padding;
+                    float: left;
+                    height: 34px;
+                    margin-right: $default-margin;
+
+                    .bar {
+                        width: 100%;
+                        display: block;
+                        background-color: #fff;
+                        height: 3px;
+
+                        &+.bar {
+                            margin-top: 4px;
+                        }
+                    }
+                }				
+            }
+
+            [ui-layout-admin--block="user-account"] {
+                display: none;
+            }
+
+
+            [ui-layout-admin-sidebar] {
+                padding: $default-padding * 2;
+                position: absolute;
+                background-color: $admin-layout-default-background;
+                z-index: 10;
+                display: none;
+                height: calc(100vh - 50px);
+
+                &.open {
+                    display: block;
+                }
+            }
+
+            [ui-layout-admin-content] {
+                padding: $default-padding;
+                width: 100%;
+                background-color: #fff;
+
+                [ui-layout-admin--block="main-content"] {
+                    padding: 0;
+
+                    [ui-container] {
+                        padding: $default-padding;
+                    }
+                }
+            }
+        }
+    }
+    //@if-use-mod-end
 }

@@ -1,3 +1,3 @@
 Component('loader', {
-	template: '@'
+    template: '@'
 });

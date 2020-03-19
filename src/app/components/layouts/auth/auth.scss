@@ -1,55 +1,55 @@
 @import '../../../theme';
 
 [ui-layout-auth] {
-	background-color: $auth-layout-default-background;
-	height: 100%;
-	padding: 80px 0;
-	overflow: auto;
+    background-color: $auth-layout-default-background;
+    height: 100%;
+    padding: 80px 0;
+    overflow: auto;
 
-	//@if-use-mod-start:ui-layout-auth--block-brand
-	[ui-layout-auth--block="brand"] {
-		border-bottom: 1px solid #efefef;
-		clear: both;
-		display: block;
-		padding: $default-padding * 2 0;
-		text-align: center;
+    //@if-use-mod-start:ui-layout-auth--block-brand
+    [ui-layout-auth--block="brand"] {
+        border-bottom: 1px solid #efefef;
+        clear: both;
+        display: block;
+        padding: $default-padding * 2 0;
+        text-align: center;
 
-		img {
-			display: inline-block;
-			height: 20px;
-			width: 20px;
-			vertical-align: middle;
-		}
+        img {
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+        }
 
-		.brand-text {
-			font-weight: 900;
-			font-size: 28px;
-			line-height: 28px;
-			letter-spacing: -1.5px;
-			vertical-align: middle;
-		}
-	}
-	//@if-use-mod-end
+        .brand-text {
+            font-weight: 900;
+            font-size: 28px;
+            line-height: 28px;
+            letter-spacing: -1.5px;
+            vertical-align: middle;
+        }
+    }
+    //@if-use-mod-end
 
-	[ui-layout-auth--block="content"] {
-		background-color: $auth-layout-box-background;
-		border-radius: $default-border-radius;
-		max-width: 320px;
-		margin: 0 auto;
-		padding: $default-padding * 2;
-		color: $auth-layout-box-text-color;
+    [ui-layout-auth--block="content"] {
+        background-color: $auth-layout-box-background;
+        border-radius: $default-border-radius;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: $default-padding * 2;
+        color: $auth-layout-box-text-color;
 
-		h1,h2,h3,h4,h5,h6,a,p,span,label {
-			color: $auth-layout-box-text-color;
-		}
+        h1,h2,h3,h4,h5,h6,a,p,span,label {
+            color: $auth-layout-box-text-color;
+        }
 
-		[ui-container] {
-			padding: $default-padding * 2 $default-padding * 2 $default-padding * 4 ;
-		}
+        [ui-container] {
+            padding: $default-padding * 2 $default-padding * 2 $default-padding * 4 ;
+        }
 
-		[ui-btn] {
-			padding: 0 24px;
-		}
-	}
+        [ui-btn] {
+            padding: 0 24px;
+        }
+    }
 
 }

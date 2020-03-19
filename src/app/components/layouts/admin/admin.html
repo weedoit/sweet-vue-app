@@ -1,57 +1,57 @@
 <div ui-layout-admin ui-layout-admin--mobile="true">
-	<div ui-layout-admin--block="nav">
-		<a href="#" class="menu-toggler" @click="toggleMenu()">
-			<span class="bar"></span>
-			<span class="bar"></span>
-			<span class="bar"></span>
-		</a>
-		<a href="/" class="brand" ui-layout-admin--block="brand">
-		    <span class="brand-text">
-		    	sweetheart
-		    </span>
-		    <img src="/favicon.png" alt="sweetheart">
-		</a>
-		<div ui-layout-admin--block="user-account" v-if="$user()">
-			<div>
-				<img :src="$user().getPicture()" alt="user avatar">
-				<div class="user-info">
-					<span class="user-name" :class="{norole: !$user().getRole()}"> {{ $user().getName() }}</span>
-					<span class="user-role" v-if="$user().getRole()">{{ $user().getRole().name }}</span>
-				</div>
+    <div ui-layout-admin--block="nav">
+        <a href="#" class="menu-toggler" @click="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <a href="/" class="brand" ui-layout-admin--block="brand">
+            <span class="brand-text">
+                sweetheart
+            </span>
+            <img src="/favicon.png" alt="sweetheart">
+        </a>
+        <div ui-layout-admin--block="user-account" v-if="$user()">
+            <div>
+                <img :src="$user().getPicture()" alt="user avatar">
+                <div class="user-info">
+                    <span class="user-name" :class="{norole: !$user().getRole()}"> {{ $user().getName() }}</span>
+                    <span class="user-role" v-if="$user().getRole()">{{ $user().getRole().name }}</span>
+                </div>
 
-				<div class="dropdown">
-					<router-link :to="myAccountRoute" v-if="myAccountRoute">
-						<i ui-icon ui-icon--name="user"></i>
-						My account
-					</router-link>
-					
-					<a href="#" @click="logout">
-						<i ui-icon ui-icon--name="sign-out"></i>
-						Logout
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="dropdown">
+                    <router-link :to="myAccountRoute" v-if="myAccountRoute">
+                        <i ui-icon ui-icon--name="user"></i>
+                        My account
+                    </router-link>
+                    
+                    <a href="#" @click="logout">
+                        <i ui-icon ui-icon--name="sign-out"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div ui-layout-admin-sidebar v-bind:class="{open: menuOpen}">
-		<div class="menu" ui-layout-admin--block="menu-top">
-			<ui-admin-menu />
-		</div>
-		<div class="menu" ui-layout-admin--block="menu-bottom">
-			<ul class="menu-list">
-				<li>
-					<a href="#" @click="logout">
-						<i ui-icon ui-icon--name="sign-out"></i>
-						Logout
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div ui-layout-admin-content @click="closeMenu()">
-		<div ui-layout-admin--block="main-content">
-			<slot></slot>
-		</div>
-	</div>
+    <div ui-layout-admin-sidebar v-bind:class="{open: menuOpen}">
+        <div class="menu" ui-layout-admin--block="menu-top">
+            <ui-admin-menu />
+        </div>
+        <div class="menu" ui-layout-admin--block="menu-bottom">
+            <ul class="menu-list">
+                <li>
+                    <a href="#" @click="logout">
+                        <i ui-icon ui-icon--name="sign-out"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ui-layout-admin-content @click="closeMenu()">
+        <div ui-layout-admin--block="main-content">
+            <slot></slot>
+        </div>
+    </div>
 </div>
