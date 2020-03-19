@@ -1,22 +1,22 @@
 @import '../../theme';
 
 [ui-input-group] {
-	margin-bottom: $default-margin;
+    margin-bottom: $default-margin;
 
-	&.sh-validator-has-error{
-		input, select {
-			border-color: $color-danger;
-		}
+    &.sh-validator-has-error{
+        input, select {
+            border-color: $color-danger;
+        }
 
-		label {
-			color: $color-danger;
-		}
+        label {
+            color: $color-danger;
+        }
 
-		.sh-validator-feedback {
-			color: $color-danger;
-			font-size: 12px;
-			display: block;
-			padding: $default-padding / 2  0;
-		}
-	}
+        .sh-validator-feedback {
+            color: $color-danger;
+            font-size: 12px;
+            display: block;
+            padding: $default-padding / 2  0;
+        }
+    }
 }

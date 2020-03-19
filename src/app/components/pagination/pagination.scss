@@ -1,39 +1,39 @@
 @import '../../theme';
 
 [ui-pagination] {
-	ul {
-		li {
-			display: inline-block;
-			user-select: none;
+    ul {
+        li {
+            display: inline-block;
+            user-select: none;
 
-			[ui-pagination-number] {
-				background-color: $color-default;
-				border-radius: $default-border-radius;
-				cursor: pointer;
-				display: inline-block;
-				height: 30px;
-				line-height: 30px;
-				padding: 0 $default-padding;
-				margin-right: 5px;
-				text-align: center;
-				min-width: 30px;
-			}
+            [ui-pagination-number] {
+                background-color: $color-default;
+                border-radius: $default-border-radius;
+                cursor: pointer;
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                padding: 0 $default-padding;
+                margin-right: 5px;
+                text-align: center;
+                min-width: 30px;
+            }
 
-			&.current,
-			&:not(.ellipsis):hover {
-				[ui-pagination-number] {
-					background-color: $color-info;
-					color: #fff;
-				}
-			}
+            &.current,
+            &:not(.ellipsis):hover {
+                [ui-pagination-number] {
+                    background-color: $color-info;
+                    color: #fff;
+                }
+            }
 
-			&.ellipsis {
-				[ui-pagination-number] {
-					cursor: unset;
-					background-color: lighten($color-default, $btn-hover-lighten);
-					color: lighten($base-text-color, $btn-hover-lighten);
-				}
-			}
-		}
-	}
+            &.ellipsis {
+                [ui-pagination-number] {
+                    cursor: unset;
+                    background-color: lighten($color-default, $btn-hover-lighten);
+                    color: lighten($base-text-color, $btn-hover-lighten);
+                }
+            }
+        }
+    }
 }
