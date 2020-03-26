@@ -4,6 +4,7 @@
     &[ui-btn--color="#{$name}"] {
         background-color: $background;
         color: $color;
+        border: 0;
 
         &:hover {
             background-color: darken($background, $btn-hover-darken);
@@ -37,6 +38,7 @@
     &[ui-btn--color="#{$name}-inverted"] {
         background-color: #FFFFFF;
         color: $color;
+        border: 0;
 
         &:hover {
             background-color: #f2f2f2;
@@ -48,7 +50,7 @@
 @mixin btn-inverted-outlined ($name, $color) {
     &[ui-btn--color="#{$name}-inverted-outlined"] {
         color: #FFFFFF;
-        border: 1px solid #FFFFFF;
+        border: 0;
         background-color: Transparent;
 
         &:hover {
@@ -63,6 +65,8 @@
         background-color: $background;
         color: $color;
         border-radius: 290486px;
+        border: 0;
+        
         &:hover {
             background-color: darken($background, $btn-hover-darken);
         }
@@ -73,7 +77,8 @@
     &[ui-btn--color="#{$name}-light"] {
         background-color: lighten($background, 55%);
         color: $background;
-        
+        border: 0;
+
         &:hover {
             background-color: lighten($background, 52%);;
         }
@@ -82,9 +87,9 @@
 
 [ui-btn] {
     background-color: $color-default;
-    border: 0;
+    border: 1px solid $default-border-color;
     border-radius: $default-border-radius;
-    color: $base-text-color;
+    color: #363636;
     cursor: pointer;
     display: inline-block;
     height: $btn-default-height;
@@ -92,7 +97,7 @@
     padding: 0 $default-padding * 1.5;
 
     &:hover {
-        background-color: darken($color-default, $btn-hover-darken);
+        border-color: darken($default-border-color, $btn-hover-darken);
     }
 
     &:disabled {
