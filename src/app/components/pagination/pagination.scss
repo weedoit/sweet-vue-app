@@ -1,24 +1,29 @@
 @import '../../theme';
 
-@mixin pagination-rounded ($name, $border-color) {
+@mixin pagination-rounded ($name) {
     &[ui-pagination--pagination="#{$name}"] {
-        li {
-            // border-color: $border-color;
-            border-radius: 290486px;
-            
-            &:hover {
-                border-color: darken($default-border-color, $btn-hover-darken);
-            } 
+        ul {
+            li {
+                [ui-pagination-number] {
+                    border-radius: 290486px;
+                }
+            }
         }
     }
 }
 
 @mixin pagination-size ($name, $multipler) {
     &[ui-pagination--size="#{$name}"] {
-        height: $btn-default-height * $multipler;
-        line-height: $btn-default-height * $multipler;
-        font-size: $base-font-size * $multipler;
-        padding: 0 $default-padding * 1.5 * $multipler;
+        ul {
+            li {
+                [ui-pagination-number] {
+                   height: $btn-default-height * $multipler;
+                    line-height: $btn-default-height * $multipler;
+                    font-size: $base-font-size * $multipler;
+                    padding: 0 $default-padding * 1.5 * $multipler; 
+                }
+            }
+        }
     }
 }
 
