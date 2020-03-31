@@ -1,5 +1,39 @@
 @import '../../theme';
 
+@mixin table-bordered ($name) {
+    &[ui-table--table="#{$name}"] {
+        td, th {
+            padding: $default-padding;
+            border: 1px solid $default-border-color;
+        }
+    }
+}
+
+@mixin table-striped ($name) {
+    &[ui-table--table="#{$name}"] {
+        tr {
+            &:nth-child(odd) {
+                background-color: #ffffff;
+            }
+        }
+        tr {
+            &:nth-child(even) {
+                background-color: #fafafa;
+            }
+        }
+    }      
+}
+
+@mixin table-hoverable ($name) {
+    &[ui-table--table="#{$name}"] {
+        tr {
+            &:hover {
+                background-color: #fafafa;
+            }
+        }
+    }     
+}
+
 [ui-table] {
     width: 100%;
     border-collapse: collapse;
@@ -8,7 +42,7 @@
     td, th {
         text-align: left;
         padding: $default-padding 0;
-        border-bottom: 1px solid $default-border-color
+        border-bottom: 1px solid $default-border-color;
     }
 
     [ui-table-action] {
@@ -26,4 +60,9 @@
         padding: $default-padding * 2;
         color: lighten($base-text-color, 20%);
     }
+
+    // Modifiers 
+    @include table-bordered('bordered');   //@if-use-mod:ui-table--table-bordered
+    @include table-striped('striped');     //@if-use-mod:ui-table--table-striped
+    @include table-hoverable('hoverable'); //@if-use-mod:ui-table--table-hoverable
 }

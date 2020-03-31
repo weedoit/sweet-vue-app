@@ -1,7 +1,37 @@
 @import '../../theme';
 
+@mixin input-color ($name, $border-color) {
+    &[ui-input--color="#{$name}"] {
+        border-color: $border-color;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+    }
+}
+
+@mixin input-rounded ($name, $border-color) {
+    &[ui-input--color="#{$name}-rounded"] {
+        border-color: $border-color;
+        border-radius: 290486px;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+    }
+}
+
+@mixin input-size ($name, $multipler) {
+    &[ui-input--size="#{$name}"] {
+        height: $btn-default-height * $multipler;
+        line-height: $btn-default-height * $multipler;
+        font-size: $base-font-size * $multipler;
+        padding: 0 $default-padding * 1.5 * $multipler;
+    }
+}
+
 [ui-input] {
-    border-radius: 0;
+    border-radius: 4px;
     height: 30px;
     line-height: 30px;
     font-size: 14px;
@@ -9,6 +39,19 @@
     border: 1px solid $default-border-color;
     background-color: #fff;
 
+    &:hover {
+        border: 1px solid darken($default-border-color, $btn-hover-darken);
+    }
+
+    &:focus {
+        border-color: #3273dc;
+        box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25)
+    }
+
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
 
     //@if-use-mod-start:ui-input--type-select
     &[ui-input--type="select"] {
@@ -42,6 +85,10 @@
             font-weight: normal;
             line-height: 30px;
         }
+
+        &:focus {
+            box-shadow: none;
+        }
     }
     //@if-use-mod-end
 
@@ -57,8 +104,32 @@
             font-weight: normal;
             line-height: 30px;
         }
+
+        &:focus {
+            box-shadow: none;
+        }
     }
     //@if-use-mod-end
+
+    // Colors
+    @include input-color('primary', $color-primary); //@if-use-mod:ui-input--color-primary
+    @include input-color('info', $color-info);       //@if-use-mod:ui-input--color-info
+    @include input-color('success', $color-success); //@if-use-mod:ui-input--color-success
+    @include input-color('danger', $color-danger);   //@if-use-mod:ui-input--color-danger
+    @include input-color('warning', $color-warning); //@if-use-mod:ui-input--color-warning
+
+    // Rounded
+    @include input-rounded('primary', $color-primary); //@if-use-mod:ui-input--color-primary-rounded
+    @include input-rounded('info', $color-info);       //@if-use-mod:ui-input--color-info-rounded
+    @include input-rounded('success', $color-success); //@if-use-mod:ui-input--color-success-rounded
+    @include input-rounded('danger', $color-danger);   //@if-use-mod:ui-input--color-danger-rounded
+    @include input-rounded('warning', $color-warning); //@if-use-mod:ui-input--color-warning-rounded
+
+    // Sizes
+    @include input-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-input--size-extra-small
+    @include input-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-input--size-small
+    @include input-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-input--size-large
+    @include input-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-input--size-extra-large
 }
 
 [ui-input-group] {

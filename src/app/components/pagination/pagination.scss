@@ -1,5 +1,32 @@
 @import '../../theme';
 
+@mixin pagination-rounded ($name) {
+    &[ui-pagination--pagination="#{$name}"] {
+        ul {
+            li {
+                [ui-pagination-number] {
+                    border-radius: 290486px;
+                }
+            }
+        }
+    }
+}
+
+@mixin pagination-size ($name, $multipler) {
+    &[ui-pagination--size="#{$name}"] {
+        ul {
+            li {
+                [ui-pagination-number] {
+                   height: $btn-default-height * $multipler;
+                    line-height: $btn-default-height * $multipler;
+                    font-size: $base-font-size * $multipler;
+                    padding: 0 $default-padding * 1.5 * $multipler; 
+                }
+            }
+        }
+    }
+}
+
 [ui-pagination] {
     ul {
         li {
@@ -36,4 +63,12 @@
             }
         }
     }
+
+    // Modifiers 
+    @include pagination-rounded('rounded');   //@if-use-mod:ui-pagination--pagination-rounded
+
+    // Sizes
+    @include pagination-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-pagination--size-small
+    @include pagination-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-pagination--size-large
+    @include pagination-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-pagination--size-extra-large
 }

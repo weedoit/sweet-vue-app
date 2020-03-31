@@ -4,6 +4,7 @@
     &[ui-btn--color="#{$name}"] {
         background-color: $background;
         color: $color;
+        border: 0;
 
         &:hover {
             background-color: darken($background, $btn-hover-darken);
@@ -20,12 +21,75 @@
     }
 }
 
+@mixin btn-outlined ($name, $background, $color) {
+    &[ui-btn--color="#{$name}-outlined"] {
+        background-color: $background;
+        color: $color;
+        border: 1px solid $color;
+
+        &:hover {
+            background-color: $color;
+            color: $background;
+        }
+    }
+}
+
+@mixin btn-inverted ($name, $color) {
+    &[ui-btn--color="#{$name}-inverted"] {
+        background-color: #FFFFFF;
+        color: $color;
+        border: 0;
+
+        &:hover {
+            background-color: #f2f2f2;
+            color: $color;
+        }
+    }
+}
+
+@mixin btn-inverted-outlined ($name, $color) {
+    &[ui-btn--color="#{$name}-inverted-outlined"] {
+        color: #FFFFFF;
+        border: 0;
+        background-color: Transparent;
+
+        &:hover {
+            background-color: #FFFFFF;
+            color: $color;
+        }
+    }
+}
+
+@mixin btn-rounded ($name, $background, $color) {
+    &[ui-btn--color="#{$name}-rounded"] {
+        background-color: $background;
+        color: $color;
+        border-radius: 290486px;
+        border: 0;
+        
+        &:hover {
+            background-color: darken($background, $btn-hover-darken);
+        }
+    }
+}
+
+@mixin btn-light ($name, $background) {
+    &[ui-btn--color="#{$name}-light"] {
+        background-color: lighten($background, 55%);
+        color: $background;
+        border: 0;
+
+        &:hover {
+            background-color: lighten($background, 52%);;
+        }
+    }
+}
 
 [ui-btn] {
     background-color: $color-default;
-    border: 0;
+    border: 1px solid $default-border-color;
     border-radius: $default-border-radius;
-    color: $base-text-color;
+    color: #363636;
     cursor: pointer;
     display: inline-block;
     height: $btn-default-height;
@@ -33,16 +97,56 @@
     padding: 0 $default-padding * 1.5;
 
     &:hover {
-        background-color: darken($color-default, $btn-hover-darken);
+        border-color: darken($default-border-color, $btn-hover-darken);
+    }
+
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
     }
 
     // Colors 
-    @include btn-color('primary', $color-primary, #FFFFFF); //@if-use-mod:ui-btn--color-primary 
-    @include btn-color('info', $color-info, #FFFFFF);       //@if-use-mod:ui-btn--color-info 
-    @include btn-color('success', $color-success, #FFFFFF); //@if-use-mod:ui-btn--color-success 
-    @include btn-color('danger', $color-danger, #FFFFFF);   //@if-use-mod:ui-btn--color-danger 
-    @include btn-color('warning', $color-warning, #FFFFFF); //@if-use-mod:ui-btn--color-warning 
+    @include btn-color('primary', $color-primary, #FFFFFF);   //@if-use-mod:ui-btn--color-primary 
+    @include btn-color('info', $color-info, #FFFFFF);         //@if-use-mod:ui-btn--color-info 
+    @include btn-color('success', $color-success, #FFFFFF);   //@if-use-mod:ui-btn--color-success 
+    @include btn-color('danger', $color-danger, #FFFFFF);     //@if-use-mod:ui-btn--color-danger 
+    @include btn-color('warning', $color-warning, #000000b3); //@if-use-mod:ui-btn--color-warning 
+    
+    // Outlined 
+    @include btn-outlined('primary', #FFFFFF, $color-primary); //@if-use-mod:ui-btn--color-primary-outlined 
+    @include btn-outlined('info', #FFFFFF, $color-info);       //@if-use-mod:ui-btn--color-info-outlined 
+    @include btn-outlined('success', #FFFFFF, $color-success); //@if-use-mod:ui-btn--color-success-outlined 
+    @include btn-outlined('danger', #FFFFFF, $color-danger);   //@if-use-mod:ui-btn--color-danger-outlined 
+    @include btn-outlined('warning', #FFFFFF, $color-warning); //@if-use-mod:ui-btn--color-warning-outlined 
 
+    // Inverted 
+    @include btn-inverted('primary', $color-primary);  //@if-use-mod:ui-btn--color-primary-inverted 
+    @include btn-inverted('info', $color-info);        //@if-use-mod:ui-btn--color-info-inverted 
+    @include btn-inverted('success', $color-success);  //@if-use-mod:ui-btn--color-success-inverted 
+    @include btn-inverted('danger', $color-danger);    //@if-use-mod:ui-btn--color-danger-inverted 
+    @include btn-inverted('warning', $color-warning);  //@if-use-mod:ui-btn--color-warning-inverted 
+
+    // Inverted Outlined
+    @include btn-inverted-outlined('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-inverted-outlined 
+    @include btn-inverted-outlined('info', $color-info);       //@if-use-mod:ui-btn--color-info-inverted-outlined 
+    @include btn-inverted-outlined('success', $color-success); //@if-use-mod:ui-btn--color-success-inverted-outlined 
+    @include btn-inverted-outlined('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-inverted-outlined 
+    @include btn-inverted-outlined('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-inverted-outlined 
+
+    // Rounded
+    @include btn-rounded('primary', $color-primary, #FFFFFF);   //@if-use-mod:ui-btn--color-primary-rounded 
+    @include btn-rounded('info', $color-info, #FFFFFF);         //@if-use-mod:ui-btn--color-info-rounded 
+    @include btn-rounded('success', $color-success, #FFFFFF);   //@if-use-mod:ui-btn--color-success-rounded 
+    @include btn-rounded('danger', $color-danger, #FFFFFF);     //@if-use-mod:ui-btn--color-danger-rounded 
+    @include btn-rounded('warning', $color-warning, #000000b3); //@if-use-mod:ui-btn--color-warning-rounded 
+
+    // Light
+    @include btn-light('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-light 
+    @include btn-light('info', $color-info);       //@if-use-mod:ui-btn--color-info-light 
+    @include btn-light('success', $color-success); //@if-use-mod:ui-btn--color-success-light 
+    @include btn-light('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-light 
+    @include btn-light('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-light 
+    
     // Sizes
     @include btn-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-btn--size-extra-small
     @include btn-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-btn--size-small
