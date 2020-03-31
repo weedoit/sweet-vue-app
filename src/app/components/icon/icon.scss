@@ -1,5 +1,20 @@
 @import '../../theme';
 
+@mixin icon-color ($name, $color) {
+    &[ui-icon--color="#{$name}"] {
+        color: $color;
+    }
+}
+
+@mixin icon-size ($name, $multipler) {
+    &[ui-icon--size="#{$name}"] {
+        height: $btn-default-height * $multipler;
+        line-height: $btn-default-height * $multipler;
+        font-size: $base-font-size * $multipler;
+        padding: 0 $default-padding * 1.5 * $multipler;
+    }
+}
+
 @font-face {
     font-family: "Flaticon";
     src: url("/fonts/Flaticon.eot");
@@ -556,4 +571,18 @@
     &[ui-icon--name="zip-file"]:before { content: "\f30f"; } //@if-use-mod:ui-icon--name-zip-file
     &[ui-icon--name="zoom-in"]:before { content: "\f310"; } //@if-use-mod:ui-icon--name-zoom-in
     &[ui-icon--name="zoom-out"]:before { content: "\f311"; } //@if-use-mod:ui-icon--name-zoom-out
+
+    // Colors 
+    @include icon-color('primary', $color-primary);   //@if-use-mod:ui-icon--color-primary 
+    @include icon-color('info', $color-info);         //@if-use-mod:ui-icon--color-info 
+    @include icon-color('success', $color-success);   //@if-use-mod:ui-icon--color-success 
+    @include icon-color('danger', $color-danger);     //@if-use-mod:ui-icon--color-danger 
+    @include icon-color('warning', $color-warning);   //@if-use-mod:ui-icon--color-warning 
+
+    // Sizes
+    @include icon-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-icon--size-extra-small
+    @include icon-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-icon--size-small
+    @include icon-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-icon--size-large
+    @include icon-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-icon--size-extra-large
+
 }
