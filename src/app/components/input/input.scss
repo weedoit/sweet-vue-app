@@ -110,6 +110,41 @@
     }
     //@if-use-mod-end
 
+    //@if-use-mod-start:ui-input--type-file
+    &[ui-input--type="file"] {
+        border: none;
+        color: transparent;
+
+        &::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        &::before {
+            content: 'Choose a file...';
+            cursor: pointer;
+            border: 1px solid #dbdbdb;
+            border-radius: $default-border-radius;
+            font-size: $base-font-size;
+            padding: .45em 1.25em .45em 2.5em;
+            background-color: #f5f5f5;
+            color: #4a4a4a;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtdXBsb2FkIGZhLXctMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLXByZWZpeD0iZmFzIiBkYXRhLWljb249InVwbG9hZCIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBkYXRhLWZhLWkyc3ZnPSIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTI5NiAzODRoLTgwYy0xMy4zIDAtMjQtMTAuNy0yNC0yNFYxOTJoLTg3LjdjLTE3LjggMC0yNi43LTIxLjUtMTQuMS0zNC4xTDI0Mi4zIDUuN2M3LjUtNy41IDE5LjgtNy41IDI3LjMgMGwxNTIuMiAxNTIuMmMxMi42IDEyLjYgMy43IDM0LjEtMTQuMSAzNC4xSDMyMHYxNjhjMCAxMy4zLTEwLjcgMjQtMjQgMjR6bTIxNi04djExMmMwIDEzLjMtMTAuNyAyNC0yNCAyNEgyNGMtMTMuMyAwLTI0LTEwLjctMjQtMjRWMzc2YzAtMTMuMyAxMC43LTI0IDI0LTI0aDEzNnY4YzAgMzAuOSAyNS4xIDU2IDU2IDU2aDgwYzMwLjkgMCA1Ni0yNS4xIDU2LTU2di04aDEzNmMxMy4zIDAgMjQgMTAuNyAyNCAyNHptLTEyNCA4OGMwLTExLTktMjAtMjAtMjBzLTIwIDktMjAgMjAgOSAyMCAyMCAyMCAyMC05IDIwLTIwem02NCAwYzAtMTEtOS0yMC0yMC0yMHMtMjAgOS0yMCAyMCA5IDIwIDIwIDIwIDIwLTkgMjAtMjB6Ij48L3BhdGg+PC9zdmc+");
+            background-position: center left 12px;
+            background-repeat: no-repeat;
+            background-size: 16px;
+        }
+
+        &:hover::before {
+            background-color: #eeeeee;
+        }
+
+        &:focus {
+            border-color: none;
+            box-shadow: none;
+        }
+    }
+    //@if-use-mod-end
+
     // Colors
     @include input-color('primary', $color-primary); //@if-use-mod:ui-input--color-primary
     @include input-color('info', $color-info);       //@if-use-mod:ui-input--color-info
