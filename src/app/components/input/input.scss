@@ -39,7 +39,6 @@
     padding-right: calc(.75em - 1px);
     padding-top: calc(.5em - 1px);
     
-
     &:hover {
         border: 1px solid darken($default-border-color, $btn-hover-darken);
     }
@@ -57,20 +56,10 @@
     //@if-use-mod-start:ui-input--type-select
     &[ui-input--type="select"] {
         -webkit-appearance: none;
-        // background-color: red;
-        // -webkit-mask-repeat: no-repeat;
-        // -webkit-mask-position: center right 4px;
-        // -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBmaWxsPScjNDQ0JyBkPSdNNy40MDYgNy44MjhsNC41OTQgNC41OTQgNC41OTQtNC41OTQgMS40MDYgMS40MDYtNiA2LTYtNnonPjwvcGF0aD48L3N2Zz4=");
-        // -webkit-mask-size: 19px;
-        // mask-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBmaWxsPScjNDQ0JyBkPSdNNy40MDYgNy44MjhsNC41OTQgNC41OTQgNC41OTQtNC41OTQgMS40MDYgMS40MDYtNiA2LTYtNnonPjwvcGF0aD48L3N2Zz4=");
         background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBmaWxsPScjNjY2JyBkPSdNNy40MDYgNy44MjhsNC41OTQgNC41OTQgNC41OTQtNC41OTQgMS40MDYgMS40MDYtNiA2LTYtNnonPjwvcGF0aD48L3N2Zz4=");
         background-position: center right 4px;
         background-repeat: no-repeat;
         background-size: 19px;
-        // filter: invert(68%) sepia(68%) saturate(3505%) hue-rotate(128deg) brightness(98%) contrast(101%);
-        &:not(:after) {
-            background-color: red;
-        }
     }
     //@if-use-mod-end
 
@@ -121,28 +110,6 @@
     }
     //@if-use-mod-end
 
-    //@if-use-mod-start:ui-input--type-file
-    &[ui-input--type="file"] {
-        
-            content: 'Select some files';
-  display: inline-block;
-  background: linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-        
-        
-        
-    }
-    //@if-use-mod-end
-
     // Colors
     @include input-color('primary', $color-primary); //@if-use-mod:ui-input--color-primary
     @include input-color('info', $color-info);       //@if-use-mod:ui-input--color-info
@@ -158,11 +125,9 @@
     @include input-rounded('warning', $color-warning); //@if-use-mod:ui-input--color-warning-rounded
 
     // Sizes
-    // @include input-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-input--size-extra-small
     @include input-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-input--size-small
     @include input-size('medium', $btn-md-multiplier);       //@if-use-mod:ui-input--size-medium
     @include input-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-input--size-large
-    // @include input-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-input--size-extra-large
 }
 
 [ui-input-group] {
