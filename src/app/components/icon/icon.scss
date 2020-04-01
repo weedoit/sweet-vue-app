@@ -8,10 +8,7 @@
 
 @mixin icon-size ($name, $multipler) {
     &[ui-icon--size="#{$name}"] {
-        height: $btn-default-height * $multipler;
-        line-height: $btn-default-height * $multipler;
-        font-size: $base-font-size * $multipler;
-        padding: 0 $default-padding * 1.5 * $multipler;
+        font-size: $base-font-size + $multipler;
     }
 }
 
@@ -580,9 +577,7 @@
     @include icon-color('warning', $color-warning);   //@if-use-mod:ui-icon--color-warning 
 
     // Sizes
-    @include icon-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-icon--size-extra-small
     @include icon-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-icon--size-small
+    @include icon-size('medium', $btn-md-multiplier);       //@if-use-mod:ui-icon--size-medium
     @include icon-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-icon--size-large
-    @include icon-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-icon--size-extra-large
-
 }

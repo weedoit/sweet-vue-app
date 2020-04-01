@@ -10,7 +10,7 @@ $default-border-radius: 4px;
 // Text
 $base-text-color: #666;
 $base-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-$base-font-size: 14px;
+$base-font-size: 1rem;
 
 // Colors
 $color-default:        #FFFFFF;
@@ -23,14 +23,13 @@ $default-background:   #efefef;
 $default-border-color: #dbdbdb;
 
 // Buttons
-$btn-default-height: 30px;
+$btn-default-height: 2.5em;
+$btn-default-line-height: 1.5;
 $btn-hover-darken:   5%;
 $btn-hover-lighten:  5%;
-$btn-xs-multiplier:  .65;
-$btn-sm-multiplier:  .75;
-$btn-md-multiplier:  1;
-$btn-lg-multiplier:  1.5;
-$btn-xl-multiplier:  2;
+$btn-sm-multiplier:  (-.25);
+$btn-md-multiplier:  .25;
+$btn-lg-multiplier:  .5;
 
 // Spinner
 $spinner-border-size: 4px;

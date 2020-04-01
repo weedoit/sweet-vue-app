@@ -14,10 +14,7 @@
 
 @mixin btn-size ($name, $multipler) {
     &[ui-btn--size="#{$name}"] {
-        height: $btn-default-height * $multipler;
-        line-height: $btn-default-height * $multipler;
-        font-size: $base-font-size * $multipler;
-        padding: 0 $default-padding * 1.5 * $multipler;
+        font-size: $base-font-size + $multipler;
     }
 }
 
@@ -90,11 +87,15 @@
     border: 1px solid $default-border-color;
     border-radius: $default-border-radius;
     color: #363636;
+    font-size: $base-font-size;
     cursor: pointer;
     display: inline-block;
     height: $btn-default-height;
-    line-height: $btn-default-height;
-    padding: 0 $default-padding * 1.5;
+    line-height: $btn-default-line-height;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
 
     &:hover {
         border-color: darken($default-border-color, $btn-hover-darken);
@@ -148,11 +149,9 @@
     @include btn-light('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-light 
     
     // Sizes
-    @include btn-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-btn--size-extra-small
     @include btn-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-btn--size-small
+    @include btn-size('medium', $btn-md-multiplier);       //@if-use-mod:ui-btn--size-medium
     @include btn-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-btn--size-large
-    @include btn-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-btn--size-extra-large
-
 
     &[ui-btn--stretch="parent"] { width: 100%; } //@if-use-mod:ui-btn--stretch-parent
 }
