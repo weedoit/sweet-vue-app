@@ -44,29 +44,9 @@
     }
 }
 
-@mixin btn-inverted-outlined ($name, $color) {
-    &[ui-btn--color="#{$name}-inverted-outlined"] {
-        color: #FFFFFF;
-        border: 0;
-        background-color: Transparent;
-
-        &:hover {
-            background-color: #FFFFFF;
-            color: $color;
-        }
-    }
-}
-
-@mixin btn-rounded ($name, $background, $color) {
-    &[ui-btn--color="#{$name}-rounded"] {
-        background-color: $background;
-        color: $color;
+@mixin btn-rounded () {
+    &[ui-btn--style="rounded"] {
         border-radius: 290486px;
-        border: 0;
-        
-        &:hover {
-            background-color: darken($background, $btn-hover-darken);
-        }
     }
 }
 
@@ -127,19 +107,8 @@
     @include btn-inverted('danger', $color-danger);    //@if-use-mod:ui-btn--color-danger-inverted 
     @include btn-inverted('warning', $color-warning);  //@if-use-mod:ui-btn--color-warning-inverted 
 
-    // Inverted Outlined
-    @include btn-inverted-outlined('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-inverted-outlined 
-    @include btn-inverted-outlined('info', $color-info);       //@if-use-mod:ui-btn--color-info-inverted-outlined 
-    @include btn-inverted-outlined('success', $color-success); //@if-use-mod:ui-btn--color-success-inverted-outlined 
-    @include btn-inverted-outlined('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-inverted-outlined 
-    @include btn-inverted-outlined('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-inverted-outlined 
-
     // Rounded
-    @include btn-rounded('primary', $color-primary, #FFFFFF);   //@if-use-mod:ui-btn--color-primary-rounded 
-    @include btn-rounded('info', $color-info, #FFFFFF);         //@if-use-mod:ui-btn--color-info-rounded 
-    @include btn-rounded('success', $color-success, #FFFFFF);   //@if-use-mod:ui-btn--color-success-rounded 
-    @include btn-rounded('danger', $color-danger, #FFFFFF);     //@if-use-mod:ui-btn--color-danger-rounded 
-    @include btn-rounded('warning', $color-warning, #000000b3); //@if-use-mod:ui-btn--color-warning-rounded 
+    @include btn-rounded();   //@if-use-mod:ui-btn--style-rounded 
 
     // Light
     @include btn-light('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-light 

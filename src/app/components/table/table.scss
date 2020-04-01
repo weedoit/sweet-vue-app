@@ -1,7 +1,7 @@
 @import '../../theme';
 
-@mixin table-bordered ($name) {
-    &[ui-table--table="#{$name}"] {
+@mixin table-bordered () {
+    &[ui-table--table="bordered"] {
         td, th {
             padding: $default-padding;
             border: 1px solid $default-border-color;
@@ -9,8 +9,8 @@
     }
 }
 
-@mixin table-striped ($name) {
-    &[ui-table--table="#{$name}"] {
+@mixin table-striped () {
+    &[ui-table--table="striped"] {
         tr {
             &:nth-child(odd) {
                 background-color: #ffffff;
@@ -24,8 +24,8 @@
     }      
 }
 
-@mixin table-hoverable ($name) {
-    &[ui-table--table="#{$name}"] {
+@mixin table-hoverable () {
+    &[ui-table--table="hoverable"] {
         tr {
             &:hover {
                 background-color: #fafafa;
@@ -62,7 +62,7 @@
     }
 
     // Modifiers 
-    @include table-bordered('bordered');   //@if-use-mod:ui-table--table-bordered
-    @include table-striped('striped');     //@if-use-mod:ui-table--table-striped
-    @include table-hoverable('hoverable'); //@if-use-mod:ui-table--table-hoverable
+    @include table-bordered();    //@if-use-mod:ui-table--table-bordered
+    @include table-striped();     //@if-use-mod:ui-table--table-striped
+    @include table-hoverable();   //@if-use-mod:ui-table--table-hoverable
 }
