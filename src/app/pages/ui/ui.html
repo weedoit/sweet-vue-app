@@ -1,0 +1,45 @@
+<layout-default>
+    <div v-if="!loading">
+        <div ui-container>
+            <h1 ui-heading ui-heading--size="1">Title 1</h1>
+            <h2 ui-heading ui-heading--size="2">Title 2</h2>
+            <h3 ui-heading ui-heading--size="3">Title 3</h3>
+            <h4 ui-heading ui-heading--size="4">Title 4</h4>
+            <h5 ui-heading ui-heading--size="5">Title 5</h5>
+            <h6 ui-heading ui-heading--size="6">Title 6</h6>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn>default</button>
+            <button type="button" ui-btn ui-btn--color="primary">primary</button>
+            <button type="button" ui-btn ui-btn--color="success">success</button>
+            <button type="button" ui-btn ui-btn--color="info">info</button>
+            <button type="button" ui-btn ui-btn--color="warning">warning</button>
+            <button type="button" ui-btn ui-btn--color="danger">danger</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn>default</button>
+            <button type="button" ui-btn ui-btn--color="primary-outlined">primary</button>
+            <button type="button" ui-btn ui-btn--color="success-outlined">success</button>
+            <button type="button" ui-btn ui-btn--color="info-outlined">info</button>
+            <button type="button" ui-btn ui-btn--color="warning-outlined">warning</button>
+            <button type="button" ui-btn ui-btn--color="danger-outlined">danger</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn>default</button>
+            <button type="button" ui-btn ui-btn--color="primary-inverted">primary</button>
+            <button type="button" ui-btn ui-btn--color="success-inverted">success</button>
+            <button type="button" ui-btn ui-btn--color="info-inverted">info</button>
+            <button type="button" ui-btn ui-btn--color="warning-inverted">warning</button>
+            <button type="button" ui-btn ui-btn--color="danger-inverted">danger</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn>default</button>
+            <button type="button" ui-btn ui-btn--color="primary-light">primary</button>
+            <button type="button" ui-btn ui-btn--color="success-light">success</button>
+            <button type="button" ui-btn ui-btn--color="info-light">info</button>
+            <button type="button" ui-btn ui-btn--color="warning-light">warning</button>
+            <button type="button" ui-btn ui-btn--color="danger-light">danger</button>
+        </div>
+    </div>
+    <ui-loader v-else></ui-loader>
+</layout-default>
