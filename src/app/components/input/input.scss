@@ -10,14 +10,9 @@
     }
 }
 
-@mixin input-rounded ($name, $border-color) {
-    &[ui-input--color="#{$name}-rounded"] {
-        border-color: $border-color;
+@mixin input-rounded () {
+    &[ui-input--style="rounded"] {
         border-radius: 290486px;
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
     }
 }
 
@@ -153,11 +148,7 @@
     @include input-color('warning', $color-warning); //@if-use-mod:ui-input--color-warning
 
     // Rounded
-    @include input-rounded('primary', $color-primary); //@if-use-mod:ui-input--color-primary-rounded
-    @include input-rounded('info', $color-info);       //@if-use-mod:ui-input--color-info-rounded
-    @include input-rounded('success', $color-success); //@if-use-mod:ui-input--color-success-rounded
-    @include input-rounded('danger', $color-danger);   //@if-use-mod:ui-input--color-danger-rounded
-    @include input-rounded('warning', $color-warning); //@if-use-mod:ui-input--color-warning-rounded
+    @include input-rounded();   //@if-use-mod:ui-input--style-rounded
 
     // Sizes
     @include input-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-input--size-small
