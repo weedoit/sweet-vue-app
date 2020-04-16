@@ -9,18 +9,27 @@
     @return calc((100% / #{$columns} * #{$column}) + #{$gutter / 2});
 }
 
-@mixin columm-size ($size) {
-    &[ui-col--size="#{$size}"] {
+@function breakpoint-prefix ($prefix) {
+    @if ($prefix != '') {
+        @return '-#{$prefix}';
+    } @else {
+        @return '';
+    }
+}
+
+@mixin columm-size ($size, $prefix: '') {
+    &[ui-col#{breakpoint-prefix($prefix)}--size="#{$size}"] {
         width: col-width($size);
         margin: 0 #{$gutter / 2};
     }
 }
 
-@mixin offset-size ($size) {
-    &[ui-col--offset="#{$size}"] {
+@mixin offset-size ($size, $prefix: '') {
+    &[ui-col#{breakpoint-prefix($prefix)}--offset="#{$size}"] {
         margin-left: offset-width($size);
     }
 }
+
 
 [ui-row] {
     margin: 0 #{$gutter / 2 * -1};
@@ -30,6 +39,31 @@
         float: left;
         position: relative;
         
+        @include columm-size(1); //@if-use-mod:ui-col--size-1
+        @include columm-size(2); //@if-use-mod:ui-col--size-2
+        @include columm-size(3); //@if-use-mod:ui-col--size-3
+        @include columm-size(4); //@if-use-mod:ui-col--size-4
+        @include columm-size(5); //@if-use-mod:ui-col--size-5
+        @include columm-size(6); //@if-use-mod:ui-col--size-6
+        @include columm-size(7); //@if-use-mod:ui-col--size-7
+        @include columm-size(8); //@if-use-mod:ui-col--size-8
+        @include columm-size(9); //@if-use-mod:ui-col--size-9
+        @include columm-size(10); //@if-use-mod:ui-col--size-10
+        @include columm-size(11); //@if-use-mod:ui-col--size-11
+        @include columm-size(12); //@if-use-mod:ui-col--size-12
+
+        @include offset-size(1); //@if-use-mod:ui-col--offset-1
+        @include offset-size(2); //@if-use-mod:ui-col--offset-2
+        @include offset-size(3); //@if-use-mod:ui-col--offset-3
+        @include offset-size(4); //@if-use-mod:ui-col--offset-4
+        @include offset-size(5); //@if-use-mod:ui-col--offset-5
+        @include offset-size(6); //@if-use-mod:ui-col--offset-6
+        @include offset-size(7); //@if-use-mod:ui-col--offset-7
+        @include offset-size(8); //@if-use-mod:ui-col--offset-8
+        @include offset-size(9); //@if-use-mod:ui-col--offset-9
+        @include offset-size(10); //@if-use-mod:ui-col--offset-10
+        @include offset-size(11); //@if-use-mod:ui-col--offset-11
+
         @include mq('xs') {
             @include columm-size(1, 'xs'); //@if-use-mod:ui-col-xs--size-1
             @include columm-size(2, 'xs'); //@if-use-mod:ui-col-xs--size-2
