@@ -9,7 +9,7 @@
             <h6 ui-heading ui-heading--size="6">Title 6</h6>
         </div>
         <div ui-container>
-            <button type="button" ui-btn>default</button>
+            <button type="button" ui-btn ui-btn--color="default">default</button>
             <button type="button" ui-btn ui-btn--color="primary">primary</button>
             <button type="button" ui-btn ui-btn--color="success">success</button>
             <button type="button" ui-btn ui-btn--color="info">info</button>
@@ -111,44 +111,58 @@
         </div>
         <div ui-container>
             <div ui-row>
-                <div ui-col ui-col--size="4">
+                <div ui-col ui-col--size="3">
                     <table ui-table ui-table--style="bordered">
                         <thead>
                             <tr>
-                                <th width>title</th>
+                                <th width>bordered</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>{{ row. }}</td>
+                                <td>bordered</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div ui-col ui-col--size="4">
+                <div ui-col ui-col--size="3">
                     <table ui-table ui-table--style="striped">
                         <thead>
                             <tr>
-                                <th width>title</th>
+                                <th width>striped</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>{{ row. }}</td>
+                                <td>striped</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div ui-col ui-col--size="4">
+                <div ui-col ui-col--size="3">
                     <table ui-table ui-table--style="hoverable">
                         <thead>
                             <tr>
-                                <th width>title</th>
+                                <th width>hoverable</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>{{ row. }}</td>
+                                <td>hoverable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ui-col ui-col--size="3">
+                    <table ui-table>
+                        <thead>
+                            <tr>
+                                <th width>default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(row, index) in resource">
+                                <td>default</td>
                             </tr>
                         </tbody>
                     </table>

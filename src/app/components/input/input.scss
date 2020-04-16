@@ -3,10 +3,10 @@
 @mixin input-color ($name, $border-color) {
     &[ui-input--color="#{$name}"] {
         border-color: $border-color;
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+    
+        &:focus {
+            box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+        }
     }
 }
 

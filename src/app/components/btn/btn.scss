@@ -44,21 +44,21 @@
     }
 }
 
-@mixin btn-rounded () {
-    &[ui-btn--style="rounded"] {
-        border-radius: 290486px;
-    }
-}
-
 @mixin btn-light ($name, $background) {
     &[ui-btn--color="#{$name}-light"] {
-        background-color: lighten($background, 55%);
-        color: $background;
+        background-color: mix($background, #FFFFFF, 10);
+        color: darken($background, 23%);
         border: 0;
 
         &:hover {
-            background-color: lighten($background, 52%);;
+            background-color: mix($background, #FFFFFF, 15);
         }
+    }
+}
+
+@mixin btn-rounded () {
+    &[ui-btn--style="rounded"] {
+        border-radius: 290486px;
     }
 }
 
@@ -107,19 +107,19 @@
     @include btn-inverted('danger', $color-danger);    //@if-use-mod:ui-btn--color-danger-inverted 
     @include btn-inverted('warning', $color-warning);  //@if-use-mod:ui-btn--color-warning-inverted 
 
-    // Rounded
-    @include btn-rounded();   //@if-use-mod:ui-btn--style-rounded 
-
     // Light
     @include btn-light('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-light 
     @include btn-light('info', $color-info);       //@if-use-mod:ui-btn--color-info-light 
     @include btn-light('success', $color-success); //@if-use-mod:ui-btn--color-success-light 
     @include btn-light('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-light 
     @include btn-light('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-light 
-    
+
+    // Rounded
+    @include btn-rounded();   //@if-use-mod:ui-btn--style-rounded 
+
     // Sizes
     @include btn-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-btn--size-small
-    @include btn-size('medium', $btn-md-multiplier);       //@if-use-mod:ui-btn--size-medium
+    @include btn-size('medium', $btn-md-multiplier);      //@if-use-mod:ui-btn--size-medium
     @include btn-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-btn--size-large
 
     &[ui-btn--stretch="parent"] { width: 100%; } //@if-use-mod:ui-btn--stretch-parent
