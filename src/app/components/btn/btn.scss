@@ -14,10 +14,7 @@
 
 @mixin btn-size ($name, $multipler) {
     &[ui-btn--size="#{$name}"] {
-        height: $btn-default-height * $multipler;
-        line-height: $btn-default-height * $multipler;
-        font-size: $base-font-size * $multipler;
-        padding: 0 $default-padding * 1.5 * $multipler;
+        font-size: $base-font-size + $multipler;
     }
 }
 
@@ -47,41 +44,21 @@
     }
 }
 
-@mixin btn-inverted-outlined ($name, $color) {
-    &[ui-btn--color="#{$name}-inverted-outlined"] {
-        color: #FFFFFF;
-        border: 0;
-        background-color: Transparent;
-
-        &:hover {
-            background-color: #FFFFFF;
-            color: $color;
-        }
-    }
-}
-
-@mixin btn-rounded ($name, $background, $color) {
-    &[ui-btn--color="#{$name}-rounded"] {
-        background-color: $background;
-        color: $color;
-        border-radius: 290486px;
-        border: 0;
-        
-        &:hover {
-            background-color: darken($background, $btn-hover-darken);
-        }
-    }
-}
-
 @mixin btn-light ($name, $background) {
     &[ui-btn--color="#{$name}-light"] {
-        background-color: lighten($background, 55%);
-        color: $background;
+        background-color: mix($background, #FFFFFF, 10);
+        color: darken($background, 23%);
         border: 0;
 
         &:hover {
-            background-color: lighten($background, 52%);;
+            background-color: mix($background, #FFFFFF, 15);
         }
+    }
+}
+
+@mixin btn-rounded () {
+    &[ui-btn--style="rounded"] {
+        border-radius: 290486px;
     }
 }
 
@@ -90,11 +67,15 @@
     border: 1px solid $default-border-color;
     border-radius: $default-border-radius;
     color: #363636;
+    font-size: $base-font-size;
     cursor: pointer;
     display: inline-block;
     height: $btn-default-height;
-    line-height: $btn-default-height;
-    padding: 0 $default-padding * 1.5;
+    line-height: $btn-default-line-height;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
 
     &:hover {
         border-color: darken($default-border-color, $btn-hover-darken);
@@ -126,33 +107,20 @@
     @include btn-inverted('danger', $color-danger);    //@if-use-mod:ui-btn--color-danger-inverted 
     @include btn-inverted('warning', $color-warning);  //@if-use-mod:ui-btn--color-warning-inverted 
 
-    // Inverted Outlined
-    @include btn-inverted-outlined('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-inverted-outlined 
-    @include btn-inverted-outlined('info', $color-info);       //@if-use-mod:ui-btn--color-info-inverted-outlined 
-    @include btn-inverted-outlined('success', $color-success); //@if-use-mod:ui-btn--color-success-inverted-outlined 
-    @include btn-inverted-outlined('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-inverted-outlined 
-    @include btn-inverted-outlined('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-inverted-outlined 
-
-    // Rounded
-    @include btn-rounded('primary', $color-primary, #FFFFFF);   //@if-use-mod:ui-btn--color-primary-rounded 
-    @include btn-rounded('info', $color-info, #FFFFFF);         //@if-use-mod:ui-btn--color-info-rounded 
-    @include btn-rounded('success', $color-success, #FFFFFF);   //@if-use-mod:ui-btn--color-success-rounded 
-    @include btn-rounded('danger', $color-danger, #FFFFFF);     //@if-use-mod:ui-btn--color-danger-rounded 
-    @include btn-rounded('warning', $color-warning, #000000b3); //@if-use-mod:ui-btn--color-warning-rounded 
-
     // Light
     @include btn-light('primary', $color-primary); //@if-use-mod:ui-btn--color-primary-light 
     @include btn-light('info', $color-info);       //@if-use-mod:ui-btn--color-info-light 
     @include btn-light('success', $color-success); //@if-use-mod:ui-btn--color-success-light 
     @include btn-light('danger', $color-danger);   //@if-use-mod:ui-btn--color-danger-light 
     @include btn-light('warning', $color-warning); //@if-use-mod:ui-btn--color-warning-light 
-    
-    // Sizes
-    @include btn-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-btn--size-extra-small
-    @include btn-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-btn--size-small
-    @include btn-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-btn--size-large
-    @include btn-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-btn--size-extra-large
 
+    // Rounded
+    @include btn-rounded();   //@if-use-mod:ui-btn--style-rounded 
+
+    // Sizes
+    @include btn-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-btn--size-small
+    @include btn-size('medium', $btn-md-multiplier);      //@if-use-mod:ui-btn--size-medium
+    @include btn-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-btn--size-large
 
     &[ui-btn--stretch="parent"] { width: 100%; } //@if-use-mod:ui-btn--stretch-parent
 }

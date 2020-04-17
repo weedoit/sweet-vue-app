@@ -3,42 +3,37 @@
 @mixin input-color ($name, $border-color) {
     &[ui-input--color="#{$name}"] {
         border-color: $border-color;
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+    
+        &:focus {
+            box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
+        }
     }
 }
 
-@mixin input-rounded ($name, $border-color) {
-    &[ui-input--color="#{$name}-rounded"] {
-        border-color: $border-color;
+@mixin input-rounded () {
+    &[ui-input--style="rounded"] {
         border-radius: 290486px;
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.125em rgba($border-color, 0.25);
     }
 }
 
 @mixin input-size ($name, $multipler) {
     &[ui-input--size="#{$name}"] {
-        height: $btn-default-height * $multipler;
-        line-height: $btn-default-height * $multipler;
-        font-size: $base-font-size * $multipler;
-        padding: 0 $default-padding * 1.5 * $multipler;
+        font-size: $base-font-size + $multipler;
     }
 }
 
 [ui-input] {
-    border-radius: 4px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    padding: 0 $default-padding;
     border: 1px solid $default-border-color;
     background-color: #fff;
-
+    border-radius: $default-border-radius;
+    font-size: $base-font-size;
+    height: $btn-default-height;
+    line-height: $btn-default-line-height;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: calc(.75em - 1px);
+    padding-right: calc(.75em - 1px);
+    padding-top: calc(.5em - 1px);
+    
     &:hover {
         border: 1px solid darken($default-border-color, $btn-hover-darken);
     }
@@ -56,9 +51,8 @@
     //@if-use-mod-start:ui-input--type-select
     &[ui-input--type="select"] {
         -webkit-appearance: none;
-        border-radius: 0px;
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBmaWxsPScjNDQ0JyBkPSdNNy40MDYgNy44MjhsNC41OTQgNC41OTQgNC41OTQtNC41OTQgMS40MDYgMS40MDYtNiA2LTYtNnonPjwvcGF0aD48L3N2Zz4=");
-        background-position: center  right 4px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0Jz48cGF0aCBmaWxsPScjNjY2JyBkPSdNNy40MDYgNy44MjhsNC41OTQgNC41OTQgNC41OTQtNC41OTQgMS40MDYgMS40MDYtNiA2LTYtNnonPjwvcGF0aD48L3N2Zz4=");
+        background-position: center right 4px;
         background-repeat: no-repeat;
         background-size: 19px;
     }
@@ -111,6 +105,41 @@
     }
     //@if-use-mod-end
 
+    //@if-use-mod-start:ui-input--type-file
+    &[ui-input--type="file"] {
+        border: none;
+        color: transparent;
+
+        &::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        &::before {
+            content: 'Choose a file...';
+            cursor: pointer;
+            border: 1px solid #dbdbdb;
+            border-radius: $default-border-radius;
+            font-size: $base-font-size;
+            padding: .45em 1.25em .45em 2.5em;
+            background-color: #f5f5f5;
+            color: #4a4a4a;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtdXBsb2FkIGZhLXctMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLXByZWZpeD0iZmFzIiBkYXRhLWljb249InVwbG9hZCIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBkYXRhLWZhLWkyc3ZnPSIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTI5NiAzODRoLTgwYy0xMy4zIDAtMjQtMTAuNy0yNC0yNFYxOTJoLTg3LjdjLTE3LjggMC0yNi43LTIxLjUtMTQuMS0zNC4xTDI0Mi4zIDUuN2M3LjUtNy41IDE5LjgtNy41IDI3LjMgMGwxNTIuMiAxNTIuMmMxMi42IDEyLjYgMy43IDM0LjEtMTQuMSAzNC4xSDMyMHYxNjhjMCAxMy4zLTEwLjcgMjQtMjQgMjR6bTIxNi04djExMmMwIDEzLjMtMTAuNyAyNC0yNCAyNEgyNGMtMTMuMyAwLTI0LTEwLjctMjQtMjRWMzc2YzAtMTMuMyAxMC43LTI0IDI0LTI0aDEzNnY4YzAgMzAuOSAyNS4xIDU2IDU2IDU2aDgwYzMwLjkgMCA1Ni0yNS4xIDU2LTU2di04aDEzNmMxMy4zIDAgMjQgMTAuNyAyNCAyNHptLTEyNCA4OGMwLTExLTktMjAtMjAtMjBzLTIwIDktMjAgMjAgOSAyMCAyMCAyMCAyMC05IDIwLTIwem02NCAwYzAtMTEtOS0yMC0yMC0yMHMtMjAgOS0yMCAyMCA5IDIwIDIwIDIwIDIwLTkgMjAtMjB6Ij48L3BhdGg+PC9zdmc+");
+            background-position: center left 12px;
+            background-repeat: no-repeat;
+            background-size: 16px;
+        }
+
+        &:hover::before {
+            background-color: #eeeeee;
+        }
+
+        &:focus {
+            border-color: none;
+            box-shadow: none;
+        }
+    }
+    //@if-use-mod-end
+
     // Colors
     @include input-color('primary', $color-primary); //@if-use-mod:ui-input--color-primary
     @include input-color('info', $color-info);       //@if-use-mod:ui-input--color-info
@@ -119,17 +148,12 @@
     @include input-color('warning', $color-warning); //@if-use-mod:ui-input--color-warning
 
     // Rounded
-    @include input-rounded('primary', $color-primary); //@if-use-mod:ui-input--color-primary-rounded
-    @include input-rounded('info', $color-info);       //@if-use-mod:ui-input--color-info-rounded
-    @include input-rounded('success', $color-success); //@if-use-mod:ui-input--color-success-rounded
-    @include input-rounded('danger', $color-danger);   //@if-use-mod:ui-input--color-danger-rounded
-    @include input-rounded('warning', $color-warning); //@if-use-mod:ui-input--color-warning-rounded
+    @include input-rounded();   //@if-use-mod:ui-input--style-rounded
 
     // Sizes
-    @include input-size('extra-small', $btn-xs-multiplier); //@if-use-mod:ui-input--size-extra-small
     @include input-size('small', $btn-sm-multiplier);       //@if-use-mod:ui-input--size-small
+    @include input-size('medium', $btn-md-multiplier);       //@if-use-mod:ui-input--size-medium
     @include input-size('large', $btn-lg-multiplier);       //@if-use-mod:ui-input--size-large
-    @include input-size('extra-large', $btn-xl-multiplier); //@if-use-mod:ui-input--size-extra-large
 }
 
 [ui-input-group] {

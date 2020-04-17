@@ -8,6 +8,7 @@
 Router.set('/', 'home');
 
 // @SW_ROUTES - START
+Router.set('/ui', 'ui');
 // @SW_ROUTES - END
 
 Router.set('*', '404');

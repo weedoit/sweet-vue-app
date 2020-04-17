@@ -3,9 +3,9 @@
     line-height: 1.2;
     margin-bottom: 1rem;
 
-    &[ui-heading--size="1"] {font-size: 40px;} // @if-use-mod:ui-heading--size-1 
-    &[ui-heading--size="2"] {font-size: 32px;} // @if-use-mod:ui-heading--size-2
-    &[ui-heading--size="3"] {font-size: 28px;} // @if-use-mod:ui-heading--size-3
+    &[ui-heading--size="1"] {font-size: 48px;} // @if-use-mod:ui-heading--size-1 
+    &[ui-heading--size="2"] {font-size: 40px;} // @if-use-mod:ui-heading--size-2
+    &[ui-heading--size="3"] {font-size: 32px;} // @if-use-mod:ui-heading--size-3
     &[ui-heading--size="4"] {font-size: 24px;} // @if-use-mod:ui-heading--size-4
     &[ui-heading--size="5"] {font-size: 20px;} // @if-use-mod:ui-heading--size-5
     &[ui-heading--size="6"] {font-size: 16px;} // @if-use-mod:ui-heading--size-6

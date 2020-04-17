@@ -1,0 +1,178 @@
+<layout-default>
+    <div v-if="!loading">
+        <div ui-container>
+            <h1 ui-heading ui-heading--size="1">Title 1</h1>
+            <h2 ui-heading ui-heading--size="2">Title 2</h2>
+            <h3 ui-heading ui-heading--size="3">Title 3</h3>
+            <h4 ui-heading ui-heading--size="4">Title 4</h4>
+            <h5 ui-heading ui-heading--size="5">Title 5</h5>
+            <h6 ui-heading ui-heading--size="6">Title 6</h6>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn ui-btn--color="default">default</button>
+            <button type="button" ui-btn ui-btn--color="primary">primary</button>
+            <button type="button" ui-btn ui-btn--color="success">success</button>
+            <button type="button" ui-btn ui-btn--color="info">info</button>
+            <button type="button" ui-btn ui-btn--color="warning">warning</button>
+            <button type="button" ui-btn ui-btn--color="danger">danger</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn ui-btn--color="primary-outlined">outlined</button>
+            <button type="button" ui-btn ui-btn--color="success-outlined">outlined</button>
+            <button type="button" ui-btn ui-btn--color="info-outlined">outlined</button>
+            <button type="button" ui-btn ui-btn--color="warning-outlined">outlined</button>
+            <button type="button" ui-btn ui-btn--color="danger-outlined">outlined</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn ui-btn--color="primary-inverted">inverted</button>
+            <button type="button" ui-btn ui-btn--color="success-inverted">inverted</button>
+            <button type="button" ui-btn ui-btn--color="info-inverted">inverted</button>
+            <button type="button" ui-btn ui-btn--color="warning-inverted">inverted</button>
+            <button type="button" ui-btn ui-btn--color="danger-inverted">inverted</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn ui-btn--color="primary-light">light</button>
+            <button type="button" ui-btn ui-btn--color="success-light">light</button>
+            <button type="button" ui-btn ui-btn--color="info-light">light</button>
+            <button type="button" ui-btn ui-btn--color="warning-light">light</button>
+            <button type="button" ui-btn ui-btn--color="danger-light">light</button>
+        </div>
+        <div ui-container>
+            <button type="button" ui-btn ui-btn--color="primary" ui-btn--style="rounded">rounded</button>
+            <button type="button" ui-btn ui-btn--color="primary" ui-btn--size="small">small</button>
+            <button type="button" ui-btn ui-btn--color="primary">medium</button>
+            <button type="button" ui-btn ui-btn--color="primary" ui-btn--size="large">large</button>
+        </div>
+        <div ui-container>
+            <div ui-row>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l1" ui-label>default</label>
+                        <input id="id31l1" type="text" ui-input v-model="resource.default">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l2" ui-label>primary</label>
+                        <input id="id31l2" type="text" ui-input ui-input--color="primary" v-model="resource.primary">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l3" ui-label>success</label>
+                        <input id="id31l3" type="text" ui-input ui-input--color="success" v-model="resource.success">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l4" ui-label>info</label>
+                        <input id="id31l4" type="text" ui-input ui-input--color="info" v-model="resource.info">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l5" ui-label>warning</label>
+                        <input id="id31l5" type="text" ui-input ui-input--color="warning" v-model="resource.warning">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l6" ui-label>danger</label>
+                        <input id="id31l6" type="text" ui-input ui-input--color="danger" v-model="resource.danger">
+                    </div>
+                </div>
+            </div>
+            <div ui-row>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l7" ui-label>small</label>
+                        <input id="id31l7" type="text" ui-input ui-input--color="primary" ui-input--size="small" v-model="resource.small">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l8" ui-label>medium</label>
+                        <input id="id31l8" type="text" ui-input ui-input--color="primary" v-model="resource.medium">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31l9" ui-label>large</label>
+                        <input id="id31l9" type="text" ui-input ui-input--color="primary" ui-input--size="large" v-model="resource.large">
+                    </div>
+                </div>
+                <div ui-col ui-col--size="2">
+                    <div ui-input-group>
+                        <label for="id31la" ui-label>rounded</label>
+                        <input id="id31la" type="text" ui-input ui-input--color="primary" ui-input--style="rounded" v-model="resource.rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ui-container>
+            <div ui-row>
+                <div ui-col ui-col--size="3">
+                    <table ui-table ui-table--style="bordered">
+                        <thead>
+                            <tr>
+                                <th width>bordered</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(row, index) in resource">
+                                <td>bordered</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ui-col ui-col--size="3">
+                    <table ui-table ui-table--style="striped">
+                        <thead>
+                            <tr>
+                                <th width>striped</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(row, index) in resource">
+                                <td>striped</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ui-col ui-col--size="3">
+                    <table ui-table ui-table--style="hoverable">
+                        <thead>
+                            <tr>
+                                <th width>hoverable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(row, index) in resource">
+                                <td>hoverable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ui-col ui-col--size="3">
+                    <table ui-table>
+                        <thead>
+                            <tr>
+                                <th width>default</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(row, index) in resource">
+                                <td>default</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--size="small" v-if="resource.resource"></ui-pagination>
+            <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" v-if="resource.resource"></ui-pagination>
+            <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--size="large" v-if="resource.resource"></ui-pagination>
+            <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--style="rounded" v-if="resource.resource"></ui-pagination>
+        </div>
+    </div>
+    <ui-loader v-else></ui-loader>
+</layout-default>
