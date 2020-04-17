@@ -78,20 +78,63 @@ class RESTFullResource {
         }, '');
     }
 
+    static createFormData(object, form, namespace) {
+        const formData = form || new FormData();
+        
+        for (let property in object) {
+            if (!object.hasOwnProperty(property) || !object[property]) {
+                continue;
+            }
+            
+            const formKey = namespace ? `${namespace}[${property}]` : property;
+
+            if (object[property] instanceof Date) {
+                formData.append(formKey, object[property].toISOString());
+            } else if (typeof object[property] === 'object' && !(object[property] instanceof File)) {
+                this.createFormData(object[property], formData, formKey);
+            } else {
+                formData.append(formKey, object[property]);
+            }
+        }
+
+        return formData;
+    }
+
+    static hasFile (obj) {
+        if (obj && typeof obj === 'object') {
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    const element = obj[key];
+                    
+                    if (element instanceof File || (typeof element === 'object' && this.hasFile(element))) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
     static process (request) {
         return new Promise((resolve, reject) => {
             const xhr = new (window.XMLHttpRequest || window.ActiveXObject)('MSXML2.XMLHTTP.3.0');
+            const method = request.method;
 
             this.applyInterceptors('request', request);
 
-            if (request.method === 'GET' && request.data) {
+            if (['POST', 'PUT'].includes(method) && this.hasFile(request.data)) {
+                request.data = this.createFormData(request.data);
+            }
+
+            if (method === 'GET' && request.data) {
                 request.url += this.objectToQuerystring(request.data);
                 request.data = null;
             }
 
-            if (request.method === 'PUT') {
+            if (method === 'PUT') {
                 request.data = request.data || {};
-                request.method = 'POST';
+                method = 'POST';
 
                 if (request.data instanceof FormData) {
                     request.data.append('_method', 'PUT');
@@ -101,7 +144,7 @@ class RESTFullResource {
             }
 
             xhr.withCredentials = true;
-            xhr.open(request.method, request.url, true);
+            xhr.open(method, request.url, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
             if (!(request.data instanceof FormData)) {
@@ -140,11 +183,11 @@ class RESTFullResource {
                 }
             };
 
-            const input = !(request.data instanceof FormData)
+            const payload = !(request.data instanceof FormData)
                 ? ((request.data) ? JSON.stringify(request.data) : '{}')
                 : request.data;
 
-            xhr.send(input);
+            xhr.send(payload);
         });
     }
 }
