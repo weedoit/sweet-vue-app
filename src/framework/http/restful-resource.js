@@ -134,6 +134,7 @@ class RESTFullResource {
 
             if (method === 'PUT') {
                 request.data = request.data || {};
+                request.url += this.objectToQuerystring({ _method: 'PUT' });
                 method = 'POST';
 
                 if (request.data instanceof FormData) {
