@@ -11,29 +11,15 @@ const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const addsrc = require('gulp-add-src');
 const filter = require('gulp-filter');
-
 const includeParams = { includePaths: [`${__dirname}/node_modules`] };
 const joinVendor = require('./lib/gulp-join-vendor.js');
 const removeUselessComponents = require('./lib/gulp-remove-useless.js');
 const removeUselessModifiers = require('./lib/gulp-remove-modifier-css.js');
 
-
-gulp.task('join-vendor', () => {
-    return gulp.src([
-        'src/app/components/**/*.js',
-        'src/app/components/**/*.scss',
-        'src/app/components/**/*.css',
-        'src/app/pages/**/*.js',
-        'src/app/pages/**/*.css',
-        'src/app/pages/**/*.scss',
-    ])
-        .pipe(join())
-        .pipe(gulp.dest('foo'));
-});
-
 gulp.task('babel', () => {
     return gulp.src([
         'src/framework/**/*.js',
+        'src/app/filters/**/*.js',
         'src/app/providers/**/*.js',
         'src/app/components/**/*.js',
         'src/app/pages/**/*.js',

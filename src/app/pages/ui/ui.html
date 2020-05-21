@@ -112,7 +112,7 @@
         <div ui-container>
             <div ui-row>
                 <div ui-col ui-col--size="3">
-                    <table ui-table ui-table--style="bordered">
+                    <table ui-table>
                         <thead>
                             <tr>
                                 <th width>bordered</th>
@@ -120,13 +120,13 @@
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>bordered</td>
+                                <td>{{ row }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div ui-col ui-col--size="3">
-                    <table ui-table ui-table--style="striped">
+                    <table ui-table>
                         <thead>
                             <tr>
                                 <th width>striped</th>
@@ -134,13 +134,13 @@
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>striped</td>
+                                <td>{{ row }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div ui-col ui-col--size="3">
-                    <table ui-table ui-table--style="hoverable">
+                    <table ui-table>
                         <thead>
                             <tr>
                                 <th width>hoverable</th>
@@ -148,7 +148,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>hoverable</td>
+                                <td>{{ row }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,13 +162,13 @@
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in resource">
-                                <td>default</td>
+                                <td>{{ row | gulag }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--size="small" v-if="resource.resource"></ui-pagination>
+            <ui-pagination :current="resource.items.page" :pages="resource.items.lastPage" @paginate="onPaginate($event)" ui-pagination--size="small" v-if="resource.items"></ui-pagination>
             <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" v-if="resource.resource"></ui-pagination>
             <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--size="large" v-if="resource.resource"></ui-pagination>
             <ui-pagination :current="resource.resource.page" :pages="resource.resource.lastPage" @paginate="onPaginate($event)" ui-pagination--style="rounded" v-if="resource.resource"></ui-pagination>

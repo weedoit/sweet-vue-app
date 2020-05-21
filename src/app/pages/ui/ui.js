@@ -1,6 +1,12 @@
 Page('ui', {
     template: '@',
 
+    filters: {
+        gulag (value) {
+            return value;
+        }
+    },
+
     data () {
         return {
             loading: true,
