@@ -1,0 +1,22 @@
+@import '../../theme';
+
+[ui-input-addon] {
+    display: flex;
+
+    [ui-input] {
+        border-radius: 0;
+    }
+}
+
+[ui-addon] {
+    padding: .4em .75em;
+    background-color: $default-border-color;
+
+    &:first-child {
+        border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+        border-radius: 0 4px 4px 0;
+    } 
+}
