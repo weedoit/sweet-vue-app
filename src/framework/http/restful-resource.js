@@ -118,8 +118,8 @@ class RESTFullResource {
 
     static process (request) {
         return new Promise((resolve, reject) => {
-            const xhr = new (window.XMLHttpRequest || window.ActiveXObject)('MSXML2.XMLHTTP.3.0');
-            const method = request.method;
+            let xhr = new (window.XMLHttpRequest || window.ActiveXObject)('MSXML2.XMLHTTP.3.0');
+            let method = request.method;
 
             this.applyInterceptors('request', request);
 

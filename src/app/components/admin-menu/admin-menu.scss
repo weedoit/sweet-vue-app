@@ -1,0 +1,17 @@
+.submenu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: all 0.5s ease-out;
+}
+
+.mainmenu {
+    font-weight: 500;
+    li {
+        &:hover {
+            .submenu {
+                display: block;
+                max-height: 420px;
+            }
+        }
+    }
+}
